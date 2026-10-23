@@ -1,0 +1,7 @@
+ensembl_release: 116
+cdna: Rattus_norvegicus.GRCr8.cdna.all.fa.gz
+ncrna: Rattus_norvegicus.GRCr8.ncrna.fa.gz
+gtf: Rattus_norvegicus.GRCr8.116.gtf.gz
+downloaded: 2026-10-23
+salmon_version: 2.8.0
+salmon_index: k=31, no decoys, cdna+ncrna

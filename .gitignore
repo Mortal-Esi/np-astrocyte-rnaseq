@@ -1,0 +1,8 @@
+data/raw/
+data/ref/*
+!data/ref/REFERENCE_VERSION.txt
+*.fastq.gz
+*.fq.gz
+.DS_Store
+.Rhistory
+.RData
