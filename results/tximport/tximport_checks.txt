@@ -1,106 +1,19 @@
-
-> cat("== 1. Samples and Salmon files\n")
 == 1. Samples and Salmon files
-
-> samples <- read.csv("samples.csv", stringsAsFactors = FALSE)
-
-> files <- file.path("results/salmon", samples$run, "quant.sf")
-
-> names(files) <- samples$run
-
-> if (!all(file.exists(files))) {
-+   stop("missing quant.sf for: ", paste(samples$run[!file.exists(files)], collapse = ", "))
-+ }
-
-> cat(length(files), "samples found\n")
 32 samples found
-
-> hdr <- names(read.delim(files[1], nrows = 1))
-
-> need <- c("Name", "Length", "EffectiveLength", "TPM", "NumReads")
-
-> cat("quant.sf columns:", paste(hdr, collapse = ", "), "\n")
 quant.sf columns: Name, Length, EffectiveLength, TPM, NumReads 
 
-> if (!all(need %in% hdr)) stop("quant.sf does not have the columns tximport expects: ", paste(setdiff(need, hdr), collapse = ", "))
-
-> cat("\n== 2. Transcript → gene table from the GTF\n")
-
 == 2. Transcript → gene table from the GTF
-
-> gtf <- "data/ref/Rattus_norvegicus.GRCr8.116.gtf.gz"
-
-> lines <- readLines(gzfile(gtf))
-
-> lines <- lines[!startsWith(lines, "#")]
-
-> fields3 <- sub("^[^\t]*\t[^\t]*\t([^\t]*)\t.*$", "\\1", lines)      # column 3 = feature type
-
-> tx_lines <- lines[fields3 == "transcript"]
-
-> rm(lines, fields3); invisible(gc())
-
-> attrs <- sub("^([^\t]*\t){8}", "", tx_lines)                          # column 9 = attributes
-
-> get_attr <- function(key) {
-+   m <- regmatches(attrs, regexec(paste0("(^|; )", key, ' "([^"]*)"'), attrs))
-+   vapply(m, function(x) if (length(x)) ..." ... [TRUNCATED] 
-
-> tx_table <- data.frame(
-+   tx           = get_attr("transcript_id"),
-+   gene         = get_attr("gene_id"),
-+   gene_name    = get_attr("gene_name ..." ... [TRUNCATED] 
-
-> tx_table$gene_name[is.na(tx_table$gene_name)] <- tx_table$gene[is.na(tx_table$gene_name)]
-
-> cat(nrow(tx_table), "transcripts,", length(unique(tx_table$gene)), "genes in the GTF\n")
 95472 transcripts, 43360 genes in the GTF
 
-> cat("\n== 3. Do Salmon's transcript names match the GTF? (version suffix check)\n")
-
 == 3. Do Salmon's transcript names match the GTF? (version suffix check)
-
-> q_names <- read.delim(files[1])$Name
-
-> cat("example Salmon name:", q_names[1], "| example GTF id:", tx_table$tx[1], "\n")
 example Salmon name: ENSRNOT00000100689.2 | example GTF id: ENSRNOT00000012734 
-
-> q_nover <- sub("\\.[0-9]+$", "", q_names)
-
-> missing <- setdiff(q_nover, tx_table$tx)
-
-> cat(length(q_names), "transcripts in quant.sf;", length(missing), "not found in the GTF after removing versions\n")
 94762 transcripts in quant.sf; 0 not found in the GTF after removing versions
 
-> if (length(missing) > 0) cat("first missing:", head(missing, 5), "\n")
-
-> cat("\n== 4. tximport (gene level)\n")
-
 == 4. tximport (gene level)
-
-> txi <- tximport(files, type = "salmon",
-+                 tx2gene = tx_table[, c("tx", "gene")],
-+                 ignoreTxVersion = TRUE,
-+         .... [TRUNCATED] 
-
-> counts <- txi$counts
-
-> cat("count matrix:", nrow(counts), "genes ×", ncol(counts), "samples\n")
 count matrix: 42687 genes × 32 samples
-
-> cat("countsFromAbundance:", txi$countsFromAbundance, "(no = raw estimated counts + length offset for DESeq2)\n")
 countsFromAbundance: no (no = raw estimated counts + length offset for DESeq2)
 
-> cat("\n== 5. Reads per sample: tximport total vs Salmon 'mapped'\n")
-
 == 5. Reads per sample: tximport total vs Salmon 'mapped'
-
-> summ_file <- "results/salmon/salmon_summary.tsv"
-
-> if (file.exists(summ_file)) {
-+   summ <- read.delim(summ_file)
-+   cmp <- data.frame(sample = colnames(counts),
-+                     tximport_tota .... [TRUNCATED] 
       sample tximport_total salmon_mapped ratio
  SRR28006151       11896822      11896822     1
  SRR28006150       12554465      12554465     1
@@ -135,27 +48,9 @@ countsFromAbundance: no (no = raw estimated counts + length offset for DESeq2)
  SRR28006121       12693648      12693648     1
  SRR28006120       16691870      16691870     1
 
-> cat("\n== 6. How many genes are actually expressed?\n")
-
 == 6. How many genes are actually expressed?
-
-> zero <- sum(rowSums(counts) == 0)
-
-> expressed <- rowSums(counts >= 10) >= 4      # ≥10 reads in ≥4 samples (smallest group size)
-
-> cat("genes with 0 reads in all samples:", zero, "\n")
 genes with 0 reads in all samples: 11698 
-
-> cat("genes with ≥10 reads in ≥4 samples:", sum(expressed), "\n")
 genes with ≥10 reads in ≥4 samples: 16609 
-
-> gene_ann <- unique(tx_table[, c("gene", "gene_name", "gene_biotype")])
-
-> gene_ann <- gene_ann[!duplicated(gene_ann$gene), ]
-
-> bt <- gene_ann$gene_biotype[match(rownames(counts)[expressed], gene_ann$gene)]
-
-> cat("biotypes of expressed genes:\n"); print(sort(table(bt), decreasing = TRUE)[1:min(8, length(unique(bt)))])
 biotypes of expressed genes:
 bt
       protein_coding               lncRNA           pseudogene 
@@ -165,32 +60,10 @@ bt
            TR_V_gene processed_pseudogene 
                    7                    5 
 
-> cat("\n== 7. Cross-check with Salmon's own gene-level file (first sample)\n")
-
 == 7. Cross-check with Salmon's own gene-level file (first sample)
-
-> gfile <- file.path("results/salmon", samples$run[1], "quant.genes.sf")
-
-> if (file.exists(gfile)) {
-+   g <- read.delim(gfile)
-+   common <- intersect(rownames(counts), g$Name)
-+   a <- counts[common, 1]; b <- g$NumReads[m .... [TRUNCATED] 
 42687 genes in common; correlation = 1 ; max |difference| = 0.002 reads
 
-> cat("\n== 8. Biological sanity check: are these astrocytes?\n")
-
 == 8. Biological sanity check: are these astrocytes?
-
-> markers <- c(Gfap = "astrocyte", Aqp4 = "astrocyte", Slc1a3 = "astrocyte", Aldh1l1 = "astrocyte",
-+              Rbfox3 = "neuron", Syp = "neuron",  .... [TRUNCATED] 
-
-> ctrl <- samples$run[samples$dose_ugml == 0]
-
-> mk <- data.frame(gene = names(markers), cell_type = markers,
-+                  mean_counts_controls = sapply(names(markers), function(s) {
-+        .... [TRUNCATED] 
-
-> print(mk, row.names = FALSE)
     gene       cell_type mean_counts_controls
     Gfap       astrocyte                44478
     Aqp4       astrocyte                36664
@@ -203,19 +76,5 @@ bt
     Aif1       microglia                    0
    Ptprc          immune                    0
 
-> cat("\n== 9. Save\n")
-
 == 9. Save
-
-> saveRDS(txi, file.path(out_dir, "txi.rds"))
-
-> cnt_out <- data.frame(gene_id = rownames(counts), round(counts), check.names = FALSE)
-
-> gz <- gzfile(file.path(out_dir, "gene_counts.csv.gz"), "w"); write.csv(cnt_out, gz, row.names = FALSE); close(gz)
-
-> write.table(gene_ann, file.path(out_dir, "gene_annotation.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
-
-> cat("saved txi.rds, gene_counts.csv.gz, gene_annotation.tsv in", out_dir, "\n")
 saved txi.rds, gene_counts.csv.gz, gene_annotation.tsv in results/tximport 
-
-> sink()

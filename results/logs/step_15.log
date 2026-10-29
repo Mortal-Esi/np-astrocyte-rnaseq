@@ -1,0 +1,63 @@
+== 1. Dose 100 vs control inside each replicate
+  Gpnmb    50 nm:   2.97   4.05   2.71   3.57
+  Gpnmb   500 nm:   2.80   4.07   2.98   4.25
+  Uchl1    50 nm:   1.38   0.74  -0.26   0.91
+  Uchl1   500 nm:   1.60   1.72   1.30   1.31
+  Pink1    50 nm:  -0.28   0.04   0.23  -0.42
+  Pink1   500 nm:  -0.79  -0.46  -0.42  -0.37
+  Fbxo7    50 nm:  -0.23  -0.28   0.00  -0.10
+  Fbxo7   500 nm:  -0.37  -0.66   0.10  -0.09
+  Dnajc6   50 nm:   1.31  -0.55   1.09  -0.65
+  Dnajc6  500 nm:   1.85   1.72   2.00   0.63
+  Park7    50 nm:   0.45   0.33   0.19   0.13
+  Park7   500 nm:   0.01   0.01  -0.09   0.08
+  Lrrk2    50 nm:   0.09   0.46  -0.10   0.70
+  Lrrk2   500 nm:   0.02   0.19   0.62   0.74
+  Snca     50 nm:   0.38   0.31   2.18   0.42
+  Snca    500 nm:   0.28  -0.42   1.89   0.60
+  Npy      50 nm:   5.64   5.32   2.87   5.11
+  Npy     500 nm:   5.10   6.89   8.31   7.21
+saved pd_genes_paired.png
+
+== 2. Leave-one-replicate-out refits
+using counts and average transcript lengths from tximport
+ done: without rep1 
+using counts and average transcript lengths from tximport
+ done: without rep2 
+using counts and average transcript lengths from tximport
+ done: without rep3 
+using counts and average transcript lengths from tximport
+ done: without rep4 
+
+== 3. High-confidence DEGs (main DEG + significant & same sign in all 4 leave-one-out fits + same sign in all 4 replicates)
+
+50 nm: main DEGs 1028 | pass all 4 leave-one-out 626 | pass all 4 replicates 938 | BOTH (high-confidence) 610 (59%; 459 up, 151 down)
+  top 15 up (by |log2FC|): Krt75, Ccl7, Fgf10, Ccl2, Tmprss11f, Aldh1a3, Cxcl10, Npy, Hspb1, Oasl, Slfn2, Tmem26, Rhbdf2, Cxcl1, Adamts1
+  top 15 down (by |log2FC|): ENSRNOG00000089440, Cfap100, Fmo1, C11h3orf52, Mroh7, LOC134481507, Fgfr4, Kcng1, ENSRNOG00000079459, Psd4, Slc27a5, P2rx6, Tmprss7, ENSRNOG00000086194, Slc13a3
+
+500 nm: main DEGs 2215 | pass all 4 leave-one-out 1769 | pass all 4 replicates 2077 | BOTH (high-confidence) 1741 (79%; 964 up, 777 down)
+  top 15 up (by |log2FC|): Ubd, Cxcl3, Ccl2, Tfpi2, Npy, Serpine1, Ccl7, LOC102553121, Ccl5, Cxcl1, Fgf10, Adamts1, Aldh1a3, Krt19, Slfn2
+  top 15 down (by |log2FC|): Wfdc1, Slc27a5, ENSRNOG00000086194, Mroh7, Fmo1, ENSRNOG00000079083, Gstm2, Dnah6, Ogn, Armc3, Ankfn1, Selenbp1, P2rx6, C11h3orf52, Trpm5
+
+== 4. Verdict for Parkinson-related genes and Npy
+(ROBUST = padj < 0.05 in the main fit AND in all 4 leave-one-out fits, same direction in every fit and every replicate)
+   gene size baseMean log2FC_shrunk    padj main_DEG_1.5x                              loo_padj            per_replicate_l2fc         verdict
+ Dnajc6   50       36          0.03 8.0e-01         FALSE             0.79 / 0.66 / 0.96 / 0.32   1.31 / -0.55 / 1.09 / -0.65 not significant
+ Dnajc6  500       36          1.51 1.7e-05          TRUE   0.0011 / 0.0015 / 0.00053 / 4.3e-06        1.85 / 1.72 / 2 / 0.63          ROBUST
+  Fbxo7   50      758         -0.14 1.4e-01         FALSE            0.45 / 0.34 / 0.087 / 0.25      -0.23 / -0.28 / 0 / -0.1 not significant
+  Fbxo7  500      758         -0.24 6.8e-03         FALSE           0.14 / 0.24 / 4e-04 / 0.016   -0.37 / -0.66 / 0.1 / -0.09         fragile
+  Gpnmb   50      624          3.31 2.2e-19          TRUE 9.2e-13 / 1.9e-11 / 1.9e-20 / 5.7e-17     2.97 / 4.05 / 2.71 / 3.57          ROBUST
+  Gpnmb  500      624          3.46 3.0e-23          TRUE 2.4e-16 / 2.2e-14 / 3.1e-23 / 2.9e-18      2.8 / 4.07 / 2.98 / 4.25          ROBUST
+  Lrrk2   50      266          0.23 1.2e-01         FALSE             0.17 / 0.33 / 0.04 / 0.53      0.09 / 0.46 / -0.1 / 0.7 not significant
+  Lrrk2  500      266          0.37 2.0e-02         FALSE             0.019 / 0.026 / 0.1 / 0.2     0.02 / 0.19 / 0.62 / 0.74         fragile
+    Npy   50      492          4.92 7.8e-14          TRUE 4.1e-08 / 8.7e-08 / 1.2e-24 / 1.1e-08     5.64 / 5.32 / 2.87 / 5.11          ROBUST
+    Npy  500      492          6.90 1.2e-28          TRUE 7.2e-23 / 3.6e-17 / 1.8e-36 / 8.5e-19      5.1 / 6.89 / 8.31 / 7.21          ROBUST
+  Park7   50     2055          0.26 5.6e-05         FALSE     0.035 / 0.011 / 8.4e-05 / 8.5e-06     0.45 / 0.33 / 0.19 / 0.13          ROBUST
+  Park7  500     2055          0.01 9.5e-01         FALSE                   1 / 1 / 0.73 / 0.87    0.01 / 0.01 / -0.09 / 0.08 not significant
+  Pink1   50     1589         -0.06 6.1e-01         FALSE             0.91 / 0.57 / 0.14 / 0.96   -0.28 / 0.04 / 0.23 / -0.42 not significant
+  Pink1  500     1589         -0.48 1.2e-04         FALSE      0.014 / 0.0033 / 2.8e-06 / 4e-04 -0.79 / -0.46 / -0.42 / -0.37          ROBUST
+   Snca   50      112          0.58 2.3e-02         FALSE          0.058 / 0.023 / 0.17 / 0.057     0.38 / 0.31 / 2.18 / 0.42         fragile
+   Snca  500      112          0.53 4.4e-02         FALSE            0.08 / 0.014 / 0.49 / 0.11     0.28 / -0.42 / 1.89 / 0.6         fragile
+  Uchl1   50     1222          0.68 5.5e-05          TRUE     0.048 / 0.0041 / 1.7e-14 / 0.0036    1.38 / 0.74 / -0.26 / 0.91         fragile
+  Uchl1  500     1222          1.45 5.0e-19          TRUE   2.7e-13 / 3.3e-10 / 9.9e-34 / 8e-15       1.6 / 1.72 / 1.3 / 1.31          ROBUST
+done — see results/confidence 

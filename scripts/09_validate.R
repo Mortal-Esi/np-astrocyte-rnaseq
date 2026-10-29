@@ -19,6 +19,37 @@ read_authors <- function(f) {
 auth <- list(`50`  = read_authors("data/authors/GSE256038_DifferentialExpression_MicroPlastics_Astrocytes_Gill_50.tsv.gz"),
              `500` = read_authors("data/authors/GSE256038_DifferentialExpression_MicroPlastics_Astrocytes_Gill_500.tsv.gz"))
 ours <- function(name) read.delim(file.path("results/deseq2", paste0(name, ".tsv")), stringsAsFactors = FALSE)
+ann_all <- read.delim("results/tximport/gene_annotation.tsv", stringsAsFactors = FALSE)   # all 43k GTF genes
+quantified <- rownames(readRDS("results/tximport/txi.rds")$counts)                        # 42.7k genes with Salmon estimates
+
+# Match authors' genes to ours: first by Ensembl ID; if the ID is unknown in our annotation
+# (IDs change between assemblies), fall back to the gene NAME when it is unique on both sides.
+match_ids <- function(a) {
+  id <- a$EnsemblGene
+  direct <- id %in% ann_all$gene
+  uniq_ours <- ann_all$gene_name[!duplicated(ann_all$gene_name) & !duplicated(ann_all$gene_name, fromLast = TRUE)]
+  uniq_auth <- a$Gene_name[!duplicated(a$Gene_name) & !duplicated(a$Gene_name, fromLast = TRUE)]
+  by_name <- !direct & a$Gene_name %in% uniq_ours & a$Gene_name %in% uniq_auth & !grepl("^ENSRNOG|^AABR|^AC[0-9]", a$Gene_name)
+  out <- ifelse(direct, id, NA)
+  out[by_name] <- ann_all$gene[match(a$Gene_name[by_name], ann_all$gene_name)]
+  clash <- by_name & out %in% out[direct]          # a name match must not land on a gene already matched by ID
+  out[clash] <- NA; by_name[clash] <- FALSE
+  data.frame(our_id = out, how = ifelse(direct, "id", ifelse(by_name, "name", "none")), stringsAsFactors = FALSE)
+}
+for (sz in names(auth)) { mm <- match_ids(auth[[sz]]); auth[[sz]]$our_id <- mm$our_id; auth[[sz]]$how <- mm$how }
+
+cat("== 0. Why are some of the authors' genes missing from our results?\n")
+for (sz in names(auth)) {
+  a <- auth[[sz]]; tested <- read.delim(file.path("results/deseq2", sprintf("%sD_vs_%sA.tsv", sz, sz)))$gene_id
+  cls <- ifelse(a$how == "none", "not in our annotation (ID and name both unmatched)",
+         ifelse(!a$our_id %in% quantified, "in annotation but not quantified (collapsed duplicate)",
+         ifelse(!a$our_id %in% tested, "quantified but removed by our low-count filter", "tested")))
+  cat(sprintf("\n%s nm — %d genes in the authors' table (matched by ID: %d, by name: %d)\n", sz, nrow(a), sum(a$how == "id"), sum(a$how == "name")))
+  print(table(cls))
+  deg <- a$padj_D_vs_A < 0.05 & abs(a$FoldChange_D_vs_A) >= 1.5
+  cat("of the authors' dose-100 DEGs:\n"); print(table(cls[deg]))
+}
+cat("\n")
 
 key_genes <- c("Gpnmb", "Lgals3", "Hspb1", "Atf3", "Ccl2", "Ccl7", "Cxcl10", "C3", "Lcn2", "Gfap", "Vim",
                "Nes", "Aqp4", "Lix1", "Abat", "Slc7a11", "Slc38a3", "Psat1", "Gstm1", "Clu", "Prdx6", "Npy", "Snca")
@@ -30,7 +61,7 @@ for (size in c("50", "500")) {
     a <- auth[[size]]
     fc_col <- sprintf("FoldChange_%s_vs_A", dose); p_col <- sprintf("padj_%s_vs_A", dose)
     o <- ours(name)
-    m <- merge(data.frame(gene_id = a$EnsemblGene, gene_name_a = a$Gene_name,
+    m <- merge(data.frame(gene_id = a$our_id, gene_name_a = a$Gene_name,
                           l2_a = to_log2(a[[fc_col]]), padj_a = a[[p_col]]),
                o[, c("gene_id", "gene_name", "baseMean", "log2FC_shrunk", "FC_shrunk_signed", "padj")],
                by = "gene_id")

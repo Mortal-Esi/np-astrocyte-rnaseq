@@ -1,33 +1,75 @@
+== 0. Why are some of the authors' genes missing from our results?
+
+50 nm — 17825 genes in the authors' table (matched by ID: 14639, by name: 637)
+cls
+in annotation but not quantified (collapsed duplicate) 
+                                                    10 
+    not in our annotation (ID and name both unmatched) 
+                                                  2549 
+        quantified but removed by our low-count filter 
+                                                  2764 
+                                                tested 
+                                                 12502 
+of the authors' dose-100 DEGs:
+
+not in our annotation (ID and name both unmatched) 
+                                                27 
+    quantified but removed by our low-count filter 
+                                                 7 
+                                            tested 
+                                               497 
+
+500 nm — 18037 genes in the authors' table (matched by ID: 14758, by name: 642)
+cls
+in annotation but not quantified (collapsed duplicate) 
+                                                    10 
+    not in our annotation (ID and name both unmatched) 
+                                                  2637 
+        quantified but removed by our low-count filter 
+                                                  2880 
+                                                tested 
+                                                 12510 
+of the authors' dose-100 DEGs:
+
+in annotation but not quantified (collapsed duplicate) 
+                                                     1 
+    not in our annotation (ID and name both unmatched) 
+                                                    58 
+        quantified but removed by our low-count filter 
+                                                    59 
+                                                tested 
+                                                  1156 
+
 == 1. Agreement with the authors (criterion: padj < 0.05 & |FC| >= 1.5)
                           50B_vs_50A 50C_vs_50A 50D_vs_50A 500B_vs_500A
 authors_genes             17825      17825      17825      18037       
 our_genes                 16726      16726      16726      16726       
-shared_genes              11970      11970      11970      11980       
-pct_authors_found            67.2       67.2       67.2       66.4     
-cor_pearson                   0.007      0.425      0.872      0       
-cor_spearman                  0.046      0.644      0.934      0.01    
+shared_genes              12502      12502      12502      12510       
+pct_authors_found            70.1       70.1       70.1       69.4     
+cor_pearson                   0.008      0.431      0.871      0       
+cor_spearman                  0.049      0.644      0.931      0.011   
 authors_DEG                   0          1        531          0       
-authors_DEG_in_shared         0          1        475          0       
-our_DEG_in_shared             0          0        768          0       
-both                          0          0        455          0       
-only_authors                  0          1         20          0       
-only_ours                     0          0        313          0       
-pct_authors_DEG_recovered        NA      0         95.8           NA   
+authors_DEG_in_shared         0          1        497          0       
+our_DEG_in_shared             0          0        806          0       
+both                          0          0        474          0       
+only_authors                  0          1         23          0       
+only_ours                     0          0        332          0       
+pct_authors_DEG_recovered        NA      0         95.4           NA   
 same_direction_in_both           NA         NA    100             NA   
                           500C_vs_500A 500D_vs_500A
 authors_genes             18037        18037       
 our_genes                 16726        16726       
-shared_genes              11980        11980       
-pct_authors_found            66.4         66.4     
-cor_pearson                   0.203        0.903   
-cor_spearman                  0.676        0.944   
+shared_genes              12510        12510       
+pct_authors_found            69.4         69.4     
+cor_pearson                   0.197        0.902   
+cor_spearman                  0.672        0.942   
 authors_DEG                   1         1274       
-authors_DEG_in_shared         1         1112       
-our_DEG_in_shared             9         1787       
-both                          0         1084       
-only_authors                  1           28       
-only_ours                     9          703       
-pct_authors_DEG_recovered     0           97.5     
+authors_DEG_in_shared         1         1156       
+our_DEG_in_shared             9         1858       
+both                          0         1122       
+only_authors                  1           34       
+only_ours                     9          736       
+pct_authors_DEG_recovered     0           97.1     
 same_direction_in_both           NA      100       
 
 == 2. Key genes at dose 100 (log2 fold change; padj)
@@ -52,7 +94,7 @@ same_direction_in_both           NA      100
    Psat1               -0.05           7.7e-01            -0.08        5.3e-01
    Gstm1               -0.23           1.8e-01            -0.41        1.6e-03
      Clu                0.06           7.1e-01             0.15        2.6e-01
-   Prdx6                  NA                NA               NA             NA
+   Prdx6                0.01           9.7e-01             0.03        8.0e-01
      Npy                  NA                NA               NA             NA
     Snca                0.16           1.9e-01             0.58        2.3e-02
  500nm_authors_log2FC 500nm_authors_padj 500nm_ours_log2FC 500nm_ours_padj
@@ -76,6 +118,6 @@ same_direction_in_both           NA      100
                 -1.29            7.7e-09             -1.30         1.3e-36
                 -1.33            1.9e-04             -1.55         4.9e-34
                 -0.80            2.3e-02             -1.17         5.5e-17
-                   NA                 NA                NA              NA
+                -0.92            2.7e-03             -1.02         5.2e-20
                    NA                 NA                NA              NA
                  0.17            4.4e-01              0.53         4.4e-02

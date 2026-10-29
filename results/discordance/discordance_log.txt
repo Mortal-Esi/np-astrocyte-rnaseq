@@ -1,0 +1,135 @@
+== A. Disagreements with the authors at dose 100
+authors' table columns: EnsemblGene, Gene_name, FoldChange_B_vs_A, padj_B_vs_A, FoldChange_C_vs_A, padj_C_vs_A, FoldChange_D_vs_A, padj_D_vs_A 
+
+---- 50 nm: 12502 shared genes
+authors' table overall: FC exactly +/-1 in 0 genes; padj exactly 1 in 3827 genes (of 17825)
+                                    n median_baseMean pct_matched_by_name pct_name_differs median_transcripts pct_authors_padj_1 pct_4of4_reps_agree_ours
+1 DEG in both                     474             186                 4.0              4.9                  2                0.0                     95.4
+2 ours only, authors ~0           231              50                 5.6             13.9                  2                5.2                     84.4
+3 authors only, ours ~0            13              18                 7.7              7.7                  3                0.0                     30.8
+4 DEG in one, partial agreement   111             308                 7.2              5.4                  2                1.8                     89.2
+5 neither                       11673             398                 4.2              8.9                  2                2.7                     40.5
+
+top of '2 ours only, authors ~0' (largest disagreement first):
+ gene_name   authors_name how baseMean n_transcripts authors_l2 authors_padj log2FC_shrunk    padj reps_agree_with_ours
+       Ubd     AC112568.1  id       53             6       0.00        1.000          8.91 4.5e-04                    3
+      Oc90           Oc90  id        4             1       0.07        1.000          4.55 1.6e-04                    4
+    Cldn23         Cldn23  id        5             1       0.05        0.073          3.42 3.1e-03                    4
+       Il7            Il7  id        3             3       0.03        1.000          3.04 1.3e-02                    4
+    Niban1        Fam129a  id      236             4       0.05        0.039          2.88 3.7e-06                    3
+       Hrc            Hrc  id        5             3      -0.08        0.048         -2.65 8.1e-03                    4
+      Tlr4           Tlr4  id        6             1       0.05        0.210          2.61 9.6e-04                    4
+     Ifit1          Ifit1  id       10             2       0.03        0.056          2.44 7.6e-03                    4
+      Gbp7           Gbp7  id        7             1       0.07        0.059          2.41 3.7e-03                    4
+   Serinc2        Serinc2  id       62             2       0.05        0.210          2.33 1.9e-07                    4
+     Fbxl2          Fbxl2  id       11             4       0.10        0.071          2.38 1.6e-04                    4
+       Sfn            Sfn  id       13             1       0.07        0.082          2.28 1.6e-03                    3
+   Fndc3c1        Fndc3c1  id        9             3       0.05        0.160          2.24 1.3e-03                    4
+      Pkp2 AABR07034767.1  id       39             2       0.11        0.052          2.15 2.0e-05                    4
+    Fgfbp1         Fgfbp1  id      112             1       0.06        0.160          2.03 2.2e-08                    4
+
+top of '3 authors only, ours ~0' (largest disagreement first):
+ gene_name authors_name  how baseMean n_transcripts authors_l2 authors_padj log2FC_shrunk   padj reps_agree_with_ours
+     Tfpi2        Tfpi2   id       18             1       4.45      9.2e-04          0.04 0.0091                    3
+     Trpm1        Trpm1   id       10             4       1.54      1.0e-02          0.15 0.0540                    4
+      Myh6         Myh6   id       18             2      -1.19      9.6e-10          0.02 0.8800                    2
+     Stac2        Stac2   id       29             4       1.11      3.6e-02          0.15 0.1800                    3
+  Clec2dl1     Clec2dl1 name       14             3       1.09      3.0e-02          0.17 0.0340                    4
+      Ocln         Ocln   id       29             5       0.88      4.2e-02          0.02 0.9000                    2
+   Mt1-ps3          Mt1   id        4             1       0.74      5.3e-03          0.01 0.5400                    2
+      Arr3         Arr3   id        7             3      -0.69      3.2e-02          0.00 0.9800                    2
+    Prss53       Prss53   id      354             5      -0.75      4.6e-03         -0.07 0.4900                    3
+     Acrbp        Acrbp   id       34             4      -0.84      1.8e-02         -0.18 0.2200                    3
+     Perm1        Perm1   id        7             1      -0.80      2.8e-02         -0.23 0.0430                    4
+     Masp2        Masp2   id      986             5      -0.66      7.9e-06         -0.11 0.3500                    3
+     Hbegf        Hbegf   id      180             1       0.59      3.3e-03          0.22 0.1500                    4
+
+---- 500 nm: 12510 shared genes
+authors' table overall: FC exactly +/-1 in 0 genes; padj exactly 1 in 2476 genes (of 18037)
+                                    n median_baseMean pct_matched_by_name pct_name_differs median_transcripts pct_authors_padj_1 pct_4of4_reps_agree_ours
+1 DEG in both                    1122             164                 3.4              6.5                  2                0.0                     97.9
+2 ours only, authors ~0           392              51                 6.6             10.7                  2                4.3                     85.2
+3 authors only, ours ~0             8              38                12.5             12.5                  2                0.0                     50.0
+4 DEG in one, partial agreement   370             209                 3.2              6.2                  2                0.0                     92.2
+5 neither                       10618             424                 4.3              9.1                  2                1.3                     37.5
+
+top of '2 ours only, authors ~0' (largest disagreement first):
+ gene_name    authors_name  how baseMean n_transcripts authors_l2 authors_padj log2FC_shrunk    padj reps_agree_with_ours
+       Ubd      AC112568.1   id       53             6       0.02        1.000         11.41 5.0e-06                    4
+       Il7             Il7   id        3             3       0.08        0.026          5.10 4.4e-04                    4
+ LOC297756       LOC297756   id        6             1       0.00        1.000          4.82 1.5e-03                    3
+    Calhm5          Calhm5   id       16             1       0.07        0.220          3.79 4.0e-04                    3
+    Cyp1b1          Cyp1b1   id       19             2       0.08        0.180          3.78 6.0e-05                    3
+    Adra1d          Adra1d   id        4             1       0.05        0.460          3.40 7.5e-03                    3
+       Ogn NEWGENE_1308171   id      101             3      -0.02        1.000         -3.21 1.4e-20                    4
+     Dnah6           Dnah6   id       12             6      -0.12        0.021         -3.28 4.5e-05                    4
+     Hrct1           Hrct1   id       16             1       0.15        0.035          2.92 1.0e-06                    4
+     Pdgfb           Pdgfb   id        6             1       0.11        0.150          2.87 2.1e-03                    4
+    Pou4f1          Pou4f1 name        5             2       0.07        0.450          2.78 4.5e-05                    4
+     Capsl           Capsl   id        4             3      -0.16        0.049         -2.82 2.7e-03                    4
+     P4ha3           P4ha3   id       56             3       0.04        0.580          2.68 1.1e-05                    4
+      Ass1            Ass1   id        7             2       0.05        0.460          2.68 1.7e-03                    3
+   Serinc2         Serinc2   id       62             2       0.12        0.079          2.75 2.8e-11                    4
+
+top of '3 authors only, ours ~0' (largest disagreement first):
+ gene_name authors_name  how baseMean n_transcripts authors_l2 authors_padj log2FC_shrunk   padj reps_agree_with_ours
+     Oas1a        Oas1a   id       17             5       3.26      4.9e-03          0.23 0.0470                    2
+     Ccl20        Ccl20   id        4             1       2.53      2.9e-02          0.09 0.0980                    4
+      Ahrr         Ahrr   id      677             3       2.50      3.3e-03          0.17 0.0120                    4
+      Myh6         Myh6   id       18             2      -1.88      1.8e-08         -0.04 0.8800                    2
+      Bphl         Bphl   id      289             1      -0.68      5.1e-03         -0.01 0.9800                    2
+      Isy1        Rab43   id      331             4       0.81      7.1e-03          0.23 0.0083                    4
+   Msantd1      Msantd1 name       14             2      -0.61      3.0e-02         -0.07 0.7800                    2
+     Trpt1        Trpt1   id       58             2      -0.61      5.2e-03         -0.29 0.1000                    4
+
+---- Npy, Nes, Vim in the authors' tables (searched by name AND by our Ensembl ID)
+
+Npy — our ID(s): ENSRNOG00000046449 | baseMean in our data: 492
+50 nm authors: not in their table
+500 nm authors: not in their table
+
+Nes — our ID(s): ENSRNOG00000018681 | baseMean in our data: 5041
+50 nm authors:
+        EnsemblGene Gene_name FoldChange_D_vs_A padj_D_vs_A
+ ENSRNOG00000018681       Nes          1.107209   0.1874049
+500 nm authors:
+        EnsemblGene Gene_name FoldChange_D_vs_A padj_D_vs_A
+ ENSRNOG00000018681       Nes            1.1784           1
+
+Vim — our ID(s): ENSRNOG00000018087 | baseMean in our data: 61430
+50 nm authors:
+        EnsemblGene Gene_name FoldChange_D_vs_A padj_D_vs_A
+ ENSRNOG00000018087       Vim          2.160188 0.005730424
+500 nm authors:
+        EnsemblGene Gene_name FoldChange_D_vs_A padj_D_vs_A
+ ENSRNOG00000018087       Vim          1.097342   0.3169876
+
+
+== B. Does each sample look like 50 nm or 500 nm? (patterns learned from the other 3 replicates)
+      sample replicate group  a_50 b_500 dose_strength frac_50 n_genes cor_R50_R500
+ SRR28006147      rep1   50B -0.11  0.06         -0.05      NA     732         0.87
+ SRR28006143      rep1   50C  0.25  0.01          0.26    0.95     732         0.87
+ SRR28006139      rep1   50D  0.73  0.37          1.10    0.66     732         0.87
+ SRR28006131      rep1  500B -0.04  0.02         -0.02      NA     732         0.87
+ SRR28006127      rep1  500C  0.21 -0.05          0.16      NA     732         0.87
+ SRR28006123      rep1  500D  0.14  0.89          1.03    0.14     732         0.87
+ SRR28006146      rep2   50B -0.24  0.16         -0.08      NA     736         0.91
+ SRR28006142      rep2   50C  0.39  0.02          0.41    0.95     736         0.91
+ SRR28006138      rep2   50D  0.78  0.13          0.91    0.86     736         0.91
+ SRR28006130      rep2  500B -0.07  0.02         -0.05      NA     736         0.91
+ SRR28006126      rep2  500C  0.40 -0.01          0.39    1.02     736         0.91
+ SRR28006122      rep2  500D -0.21  1.01          0.80   -0.26     736         0.91
+ SRR28006145      rep3   50B  0.07 -0.12         -0.04      NA     734         0.92
+ SRR28006141      rep3   50C  0.32 -0.12          0.20    1.62     734         0.92
+ SRR28006137      rep3   50D  0.39 -0.01          0.38    1.03     734         0.92
+ SRR28006129      rep3  500B -0.09 -0.06         -0.15      NA     734         0.92
+ SRR28006125      rep3  500C  0.16  0.36          0.52    0.31     734         0.92
+ SRR28006121      rep3  500D -0.13  1.03          0.90   -0.14     734         0.92
+ SRR28006144      rep4   50B -0.10  0.06         -0.04      NA     766         0.85
+ SRR28006140      rep4   50C  0.19 -0.06          0.14      NA     766         0.85
+ SRR28006136      rep4   50D  0.76  0.25          1.01    0.75     766         0.85
+ SRR28006128      rep4  500B  0.07 -0.06          0.01      NA     766         0.85
+ SRR28006124      rep4  500C  0.11 -0.07          0.04      NA     766         0.85
+ SRR28006120      rep4  500D  0.79  0.49          1.28    0.62     766         0.85
+
+saved signature_map.png

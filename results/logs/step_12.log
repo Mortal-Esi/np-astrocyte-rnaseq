@@ -1,0 +1,90 @@
+== Refit with design ~ group (no replicate term)
+
+50 nm: 12502 shared genes, 231 'vertical band' genes
+Spearman of -log10 padj with the authors: paired 0.809 | no replicate 0.844
+
+500 nm: 12510 shared genes, 392 'vertical band' genes
+Spearman of -log10 padj with the authors: paired 0.844 | no replicate 0.894
+
+== Which version of our analysis looks most like the authors' table?
+(band_genes_median_abs_l2: for the 'vertical band' genes, how big is the fold change in this version — ~0 means this version reproduces the band)
+ size         version pearson spearman median_abs_diff band_genes_median_abs_l2 n_DEG authors_DEG_recovered_pct jaccard_with_authors
+   50 paired_unshrunk   0.747    0.876           0.072                     1.17  1033                      97.0                0.460
+   50   paired_apeglm   0.871    0.931           0.039                     0.90   806                      95.4                0.572
+   50  noRep_unshrunk   0.747    0.875           0.071                     1.07   564                      85.3                0.666
+   50    noRep_apeglm   0.885    0.952           0.019                     0.09   449                      78.7                0.705
+   50    noRep_normal   0.745    0.917           0.040                     0.38   308                      56.7                0.539
+  500 paired_unshrunk   0.836    0.921           0.058                     1.13  2055                      98.3                0.547
+  500   paired_apeglm   0.902    0.942           0.043                     0.90  1858                      97.1                0.593
+  500  noRep_unshrunk   0.848    0.923           0.058                     1.08  1451                      94.9                0.726
+  500    noRep_apeglm   0.946    0.962           0.025                     0.22  1256                      93.3                0.808
+  500    noRep_normal   0.857    0.931           0.049                     0.55  1287                      91.6                0.765
+
+== Authors' genes with a dose-100 fold change >= 16x (either direction) — looking for Npy under another ID/name
+
+50 nm (17 genes):
+        EnsemblGene Gene_name FoldChange_D_vs_A  padj_D_vs_A in_our_annotation
+ ENSRNOG00000000768       Ubd         597.10969 8.904986e-04             FALSE
+ ENSRNOG00000040350    Mir675         171.78189 2.736369e-07             FALSE
+ ENSRNOG00000000239      Ccl7          70.80901 2.528348e-07              TRUE
+ ENSRNOG00000007159      Ccl2          69.43401 1.437516e-13              TRUE
+ ENSRNOG00000022839     Ifit3          52.98547 1.971074e-04              TRUE
+ ENSRNOG00000052070   Aldh1a3          39.60181 3.614079e-05              TRUE
+ ENSRNOG00000012278     Fgf10          37.50250 1.337129e-04              TRUE
+ ENSRNOG00000037113     Slfn2          35.71793 9.082838e-05              TRUE
+ ENSRNOG00000022256    Cxcl10          35.09369 4.151926e-06              TRUE
+ ENSRNOG00000022298    Cxcl11          26.50285 1.904139e-03              TRUE
+ ENSRNOG00000023546     Hspb1          26.37308 3.379908e-27              TRUE
+ ENSRNOG00000020369      Igf2          25.45989 5.532431e-05              TRUE
+ ENSRNOG00000010513     Tfpi2          21.92531 9.194870e-04              TRUE
+ ENSRNOG00000017024   Pla2g2e          17.78253 1.000000e+00              TRUE
+ ENSRNOG00000043203     Krt75          17.73823 1.290262e-04              TRUE
+ ENSRNOG00000018693     Asgr1          16.82201 1.295193e-04              TRUE
+ ENSRNOG00000001959       Mx1          16.56276 1.544960e-03              TRUE
+
+500 nm (43 genes):
+        EnsemblGene      Gene_name FoldChange_D_vs_A  padj_D_vs_A in_our_annotation
+ ENSRNOG00000000768            Ubd        3909.88374 1.152465e-08             FALSE
+ ENSRNOG00000028043          Cxcl3        1036.12934 6.817928e-05              TRUE
+ ENSRNOG00000010906           Ccl5         403.16006 7.092093e-09             FALSE
+ ENSRNOG00000007159           Ccl2         242.12746 3.394085e-09              TRUE
+ ENSRNOG00000000239           Ccl7         152.86090 1.943500e-09              TRUE
+ ENSRNOG00000010513          Tfpi2         127.59949 2.864282e-03              TRUE
+ ENSRNOG00000029141        Trabd2b         109.79528 5.870305e-06              TRUE
+ ENSRNOG00000006926       Atp6v0d2          93.66935 1.762347e-03              TRUE
+ ENSRNOG00000037113          Slfn2          93.33752 1.047749e-07              TRUE
+ ENSRNOG00000002802          Cxcl1          88.04674 5.981815e-08              TRUE
+ ENSRNOG00000008478          Mmp13          82.24203 6.539102e-05              TRUE
+ ENSRNOG00000021260           Prnd          70.48089 2.543503e-03              TRUE
+ ENSRNOG00000052070        Aldh1a3          67.57862 2.862666e-07              TRUE
+ ENSRNOG00000002792          Cxcl2          67.33402 1.096975e-02              TRUE
+ ENSRNOG00000001414       Serpine1          63.60403 2.677878e-03              TRUE
+ ENSRNOG00000022839          Ifit3          57.00557 7.444434e-06              TRUE
+ ENSRNOG00000001607        Adamts1          53.20391 3.354269e-29              TRUE
+ ENSRNOG00000022256         Cxcl10          47.16642 4.479458e-08              TRUE
+ ENSRNOG00000012278          Fgf10          41.52736 1.252532e-06              TRUE
+ ENSRNOG00000002843          Cxcl6          34.32590 1.357836e-04              TRUE
+ ENSRNOG00000010529          Thbs2          34.18339 3.873227e-20              TRUE
+ ENSRNOG00000002005      Tmprss11f          30.41610 5.370781e-04              TRUE
+ ENSRNOG00000014233          Krt19          27.50543 5.615901e-09             FALSE
+ ENSRNOG00000007002            Lif          26.24142 4.132642e-09              TRUE
+ ENSRNOG00000010478      LOC500712          25.84408 1.743643e-02              TRUE
+ ENSRNOG00000007490         Gabrr2          25.02042 9.072834e-04              TRUE
+ ENSRNOG00000020369           Igf2          24.76429 1.822840e-03              TRUE
+ ENSRNOG00000003510           Fmo2         -24.53047 1.957139e-03              TRUE
+ ENSRNOG00000020105         Klhl30          24.12430 6.639172e-07              TRUE
+ ENSRNOG00000024799           Cd93          23.44822 6.735702e-06              TRUE
+ ENSRNOG00000038539         Lrrc15          22.23658 9.473706e-09             FALSE
+ ENSRNOG00000029184 AABR07033882.1          22.08821 1.784460e-03              TRUE
+ ENSRNOG00000021062          Fxyd5          22.06479 1.181095e-02              TRUE
+ ENSRNOG00000043203          Krt75          21.65780 4.094130e-05              TRUE
+ ENSRNOG00000023546          Hspb1          21.57130 1.860659e-09              TRUE
+ ENSRNOG00000001187           Oasl          21.09965 5.024770e-06              TRUE
+ ENSRNOG00000017333           Syt4          19.59984 5.192693e-07              TRUE
+ ENSRNOG00000017386           Il11          18.39556 1.901434e-05              TRUE
+ ENSRNOG00000019661          Gdf15          17.61306 4.201545e-14              TRUE
+ ENSRNOG00000001959            Mx1          16.91647 3.802394e-04              TRUE
+ ENSRNOG00000016117           Myof          16.75442 9.747496e-05              TRUE
+ ENSRNOG00000027859         Tmem26          16.57522 2.696135e-04              TRUE
+ ENSRNOG00000016472         March4          16.28259 6.561896e-13              TRUE
+done — see results/authors_model 

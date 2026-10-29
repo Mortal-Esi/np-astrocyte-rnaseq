@@ -1,0 +1,86 @@
+== 1. Samples and Salmon files
+32 samples found
+quant.sf columns: Name, Length, EffectiveLength, TPM, NumReads 
+
+== 2. Transcript → gene table from the GTF
+95472 transcripts, 43360 genes in the GTF
+
+== 3. Do Salmon's transcript names match the GTF? (version suffix check)
+example Salmon name: ENSRNOT00000100689.2 | example GTF id: ENSRNOT00000012734 
+94762 transcripts in quant.sf; 0 not found in the GTF after removing versions
+
+== 4. tximport (gene level)
+reading in files with read.delim (install 'readr' package for speed up)
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 
+summarizing abundance
+summarizing counts
+summarizing length
+count matrix: 42687 genes × 32 samples
+countsFromAbundance: no (no = raw estimated counts + length offset for DESeq2)
+
+== 5. Reads per sample: tximport total vs Salmon 'mapped'
+      sample tximport_total salmon_mapped ratio
+ SRR28006151       11896822      11896822     1
+ SRR28006150       12554465      12554465     1
+ SRR28006149       13205267      13205267     1
+ SRR28006148       13281121      13281121     1
+ SRR28006147       12342715      12342715     1
+ SRR28006146       13659061      13659061     1
+ SRR28006145       13537012      13537012     1
+ SRR28006144       12612237      12612237     1
+ SRR28006143       14300792      14300792     1
+ SRR28006142       13648003      13648003     1
+ SRR28006141       11953074      11953074     1
+ SRR28006140        8929490       8929490     1
+ SRR28006139       13582882      13582882     1
+ SRR28006138       12733588      12733588     1
+ SRR28006137       10581998      10581998     1
+ SRR28006136       15533807      15533807     1
+ SRR28006135       13530196      13530196     1
+ SRR28006134       13965218      13965218     1
+ SRR28006133       15104102      15104102     1
+ SRR28006132       13958135      13958135     1
+ SRR28006131       13405060      13405060     1
+ SRR28006130       14046662      14046662     1
+ SRR28006129       12421923      12421923     1
+ SRR28006128       12993666      12993666     1
+ SRR28006127       11133159      11133159     1
+ SRR28006126       14407050      14407050     1
+ SRR28006125       12230998      12230998     1
+ SRR28006124       15981676      15981676     1
+ SRR28006123       14110278      14110278     1
+ SRR28006122       12766122      12766122     1
+ SRR28006121       12693648      12693648     1
+ SRR28006120       16691870      16691870     1
+
+== 6. How many genes are actually expressed?
+genes with 0 reads in all samples: 11698 
+genes with ≥10 reads in ≥4 samples: 16609 
+biotypes of expressed genes:
+bt
+      protein_coding               lncRNA           pseudogene 
+               13738                 2742                   68 
+              snoRNA                snRNA                 rRNA 
+                  25                    9                    7 
+           TR_V_gene processed_pseudogene 
+                   7                    5 
+
+== 7. Cross-check with Salmon's own gene-level file (first sample)
+42687 genes in common; correlation = 1 ; max |difference| = 0.002 reads
+
+== 8. Biological sanity check: are these astrocytes?
+    gene       cell_type mean_counts_controls
+    Gfap       astrocyte                44478
+    Aqp4       astrocyte                36664
+  Slc1a3       astrocyte                19034
+ Aldh1l1       astrocyte                  210
+  Rbfox3          neuron                  172
+     Syp          neuron                  465
+     Mbp oligodendrocyte                 4185
+    Plp1 oligodendrocyte                11087
+    Aif1       microglia                    0
+   Ptprc          immune                    0
+
+== 9. Save
+saved txi.rds, gene_counts.csv.gz, gene_annotation.tsv in results/tximport 
+log: results/tximport/tximport_checks.txt 
