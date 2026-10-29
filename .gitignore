@@ -14,3 +14,5 @@ results/salmon/*.log
 .Rproj.user
 results/tximport/txi.rds
 .Rproj.user/
+results/explore/controls_b500_vs_b50.tsv
+results/deseq2/dds.rds

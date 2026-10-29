@@ -1,0 +1,94 @@
+== 1. Filter and transform
+genes kept (>=10 reads in >=4 samples): 16726 of 42687 
+
+== 2. PCA (top 500 most variable genes)
+variance explained, PC1..PC6 (%): 49.2 24.4 13.4 2.9 1.6 1.5 
+mean PC1/PC2 per group:
+      PC1  PC2
+50A  -7.3 -3.2
+50B  -8.7 -2.6
+50C  -4.1 -0.7
+50D  10.9  4.8
+500A -5.9 -3.0
+500B -7.7 -3.5
+500C -0.9 -0.4
+500D 23.6  8.6
+
+controls only — variance explained PC1..PC4 (%): 63.6 27.9 2.7 2.3 
+controls PC1 scores:
+ 50A  50A  50A  50A 500A 500A 500A 500A 
+-6.4 -8.7 20.9 -8.0 -7.0 -6.2 23.5 -8.1 
+
+== 3. Batch effect in genes: 500A controls vs 50A controls
+control-vs-control genes with padj<0.05: 0 | also |FC|>=1.5: 0 
+(for scale: the authors report 531 and 1274 DEGs for dose 100 vs its own control)
+top control-vs-control genes:
+            gene_id          gene_name log2FC  padj
+ ENSRNOG00000086769 ENSRNOG00000086769  -2.11 0.783
+ ENSRNOG00000000001               Arsj   0.20 1.000
+ ENSRNOG00000000010              Cbln1  -0.27 1.000
+ ENSRNOG00000000024              Hebp1   0.13 1.000
+ ENSRNOG00000000033              Tmcc2  -0.07 1.000
+ ENSRNOG00000000034              Nuak2   0.13 1.000
+ ENSRNOG00000000036            Klhdc8a   0.91 1.000
+ ENSRNOG00000000040           Kiaa1614   0.21 1.000
+ ENSRNOG00000000041            Slc26a1   0.27 1.000
+ ENSRNOG00000000042               Xpr1   0.02 1.000
+ ENSRNOG00000000043               Idua   0.10 1.000
+ ENSRNOG00000000044            Tmem175  -0.02 1.000
+ ENSRNOG00000000047               Cd82   0.11 1.000
+ ENSRNOG00000000048                Gak   0.02 1.000
+ ENSRNOG00000000053                Crp  -0.05 1.000
+
+== 4. Sample distance heatmap
+saved sample_distance_heatmap.png (row colour: black = b50, orange = b500; column colour = dose)
+
+== 5. Replicate consistency (outlier check)
+lowest 5 (a clear outlier would stand well below the rest):
+         run group mean_cor_with_replicates
+ SRR28006125  500C                   0.9676
+ SRR28006133  500A                   0.9744
+ SRR28006149   50A                   0.9771
+ SRR28006120  500D                   0.9775
+ SRR28006121  500D                   0.9776
+range: 0.9676 0.9895 
+
+== 6. Cell-type markers across groups (DESeq2-normalised counts, group means)
+                        50A   50B   50C   50D  500A  500B  500C  500D
+Gfap (astro)          42735 43850 65542 87858 44612 48079 63166 50560
+Aqp4 (astro)          35650 35635 37611 28951 35518 40087 36225 13003
+Slc1a3 (astro)        18321 18079 19443 20276 18454 18492 19076 15855
+Aldh1l1 (astro)         224   201   187   210   190   193   200   303
+Pdgfra (OPC)           7333  7421  7256  5560  7018  7258  6861  6265
+Cspg4 (OPC)             354   370   405   329   331   357   369   291
+Olig1 (OL-lineage)     8100  8851  8266  7019  8056  7763  7624  7396
+Olig2 (OL-lineage)     5189  5600  4955  4275  5209  5058  4856  4350
+Sox10 (OL-lineage)      131   163   157   114   119   156   147    95
+Mbp (mature OL)        4034  5198  4566  5879  4206  4307  4312  3065
+Plp1 (mature OL)      10860 12234 10990 10473 11035 10667 10515  7976
+Mog (mature OL)          85    97    88    89    96    77    76    43
+Rbfox3 (neuron)         167   157   147   132   174   156   145   136
+Tubb3 (neuron)          701   691   630   638   686   674   642   939
+Nes (progenitor)       3335  2685  2965  5848  4072  2947  5239 13240
+Sox2 (progenitor)      4860  4926  4767  5043  4988  5088  4907  5294
+Mki67 (proliferation)  2747  2672  2369  2234  2778  2499  2434  2705
+
+log2(dose 100 / control) — rough look, not a test:
+                      50nm_D_vs_A 500nm_D_vs_A
+Gfap (astro)                 1.04         0.18
+Aqp4 (astro)                -0.30        -1.45
+Slc1a3 (astro)               0.15        -0.22
+Aldh1l1 (astro)             -0.09         0.67
+Pdgfra (OPC)                -0.40        -0.16
+Cspg4 (OPC)                 -0.10        -0.19
+Olig1 (OL-lineage)          -0.21        -0.12
+Olig2 (OL-lineage)          -0.28        -0.26
+Sox10 (OL-lineage)          -0.20        -0.32
+Mbp (mature OL)              0.54        -0.46
+Plp1 (mature OL)            -0.05        -0.47
+Mog (mature OL)              0.06        -1.13
+Rbfox3 (neuron)             -0.33        -0.36
+Tubb3 (neuron)              -0.14         0.45
+Nes (progenitor)             0.81         1.70
+Sox2 (progenitor)            0.05         0.09
+Mki67 (proliferation)       -0.30        -0.04

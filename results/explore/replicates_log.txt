@@ -1,0 +1,26 @@
+== 1. replicate assignment (GSM order within each group)
+      
+       rep1 rep2 rep3 rep4
+  500A    1    1    1    1
+  500B    1    1    1    1
+  500C    1    1    1    1
+  500D    1    1    1    1
+  50A     1    1    1    1
+  50B     1    1    1    1
+  50C     1    1    1    1
+  50D     1    1    1    1
+samples.csv updated with a 'replicate' column
+
+== 2. Share of each PC explained by replicate vs group (R² of a one-factor linear model)
+     PC pct_variance R2_replicate R2_group R2_size_batch
+[1,]  1         49.2         0.25     0.67          0.03
+[2,]  2         24.4         0.78     0.20          0.00
+[3,]  3         13.4         0.91     0.05          0.00
+[4,]  4          2.9         0.03     0.42          0.07
+[5,]  5          1.6         0.10     0.27          0.04
+
+== 3. Controls 500A vs 50A, now blocking on replicate (paired)
+genes padj<0.05: 0 | also |FC|>=1.5: 0 
+for comparison — genes that differ BETWEEN REPLICATES among the 8 controls (LRT, padj<0.05): 5482 
+
+saved pca_by_replicate_PC1_PC2.png and pca_by_replicate_PC2_PC3.png
