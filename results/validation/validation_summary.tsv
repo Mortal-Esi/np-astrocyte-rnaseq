@@ -1,0 +1,7 @@
+contrast	authors_genes	our_genes	shared_genes	pct_authors_found	cor_pearson	cor_spearman	authors_DEG	authors_DEG_in_shared	our_DEG_in_shared	both	only_authors	only_ours	pct_authors_DEG_recovered	same_direction_in_both
+50B_vs_50A	17825	16726	11970	67.2	0.007	0.046	0	0	0	0	0	0	NA	NA
+50C_vs_50A	17825	16726	11970	67.2	0.425	0.644	1	1	0	0	1	0	0	NA
+50D_vs_50A	17825	16726	11970	67.2	0.872	0.934	531	475	768	455	20	313	95.8	100
+500B_vs_500A	18037	16726	11980	66.4	0	0.01	0	0	0	0	0	0	NA	NA
+500C_vs_500A	18037	16726	11980	66.4	0.203	0.676	1	1	9	0	1	9	0	NA
+500D_vs_500A	18037	16726	11980	66.4	0.903	0.944	1274	1112	1787	1084	28	703	97.5	100
