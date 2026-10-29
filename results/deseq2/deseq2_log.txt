@@ -1,0 +1,70 @@
+LFC shrinkage method: apeglm 
+
+== 1. Fit: ~ replicate + group
+genes tested: 16726 
+coefficients (ref 50A): Intercept, replicate_rep2_vs_rep1, replicate_rep3_vs_rep1, replicate_rep4_vs_rep1, group_50B_vs_50A, group_50C_vs_50A, group_50D_vs_50A, group_500A_vs_50A, group_500B_vs_50A, group_500C_vs_50A, group_500D_vs_50A 
+
+== 2. Contrasts
+                     contrast tested padj05   up down padj05_FC1.5
+                   50B_vs_50A  16726      0    0    0            0
+                   50C_vs_50A  16726      6    4    2            0
+                   50D_vs_50A  16726   4322 2430 1892         1028
+                 500B_vs_500A  16726      1    0    1            0
+                 500C_vs_500A  15753     39   19   20            9
+                 500D_vs_500A  16726   5735 2943 2792         2215
+                  50D_vs_500D  15753   2581 1463 1118          541
+ response50_minus_response500  13807    990  707  283          443
+ cooks_outlier_genes low_count_filtered
+                   0                  0
+                   0                  0
+                   0                  0
+                   0                  0
+                   0                973
+                   0                  0
+                   0                973
+                   0               2919
+note: response50_minus_response500 uses UNSHRUNKEN log2FC (no shrinkage possible for this contrast)
+
+(authors, same criterion padj<0.05 & |FC|>=1.5, dose 100: 50 nm = 531, 500 nm = 1274)
+
+== 3. Sensitivity check: same dose-100 contrasts WITHOUT replicate in the model
+padj<0.05 without replicate term — 50D vs 50A: 1552 | 500D vs 500A: 3028 
+padj<0.05 with replicate term    — 50D vs 50A: 4322 | 500D vs 500A: 5735 
+
+== 4. Top 15 genes (by padj) for dose 100
+
+-- 50D_vs_50A 
+ gene_name baseMean log2FC_shrunk FC_shrunk_signed      padj
+     Gpnmb   624.05        3.3069           9.8962 2.180e-19
+     Hspb1  1067.34        4.8842          29.5318 1.881e-17
+    Notch3  1127.13       -0.8014          -1.7428 5.779e-16
+  Tmem176b  1049.72        1.1483           2.2165 5.779e-16
+    Lgals3  1044.64        3.8065          13.9918 5.779e-16
+      Cd24  1021.05        0.9348           1.9117 1.142e-15
+     Scn1b    88.56        2.6823           6.4186 2.014e-15
+     Rab3b   231.87        1.8832           3.6889 1.887e-14
+    Snapc2  1343.03        0.5958           1.5113 2.546e-14
+     Serf2  2408.69        0.5330           1.4470 5.282e-14
+      Gas7   541.99        1.5177           2.8633 5.378e-14
+      Rgs8   212.78        1.6467           3.1312 6.014e-14
+       Npy   492.08        4.9159          30.1871 7.777e-14
+      Nnat  4620.97       -0.8022          -1.7438 1.033e-13
+      Capg   345.67        1.3243           2.5040 1.692e-13
+
+-- 500D_vs_500A 
+ gene_name baseMean log2FC_shrunk FC_shrunk_signed      padj
+      Lix1   920.27       -2.6530          -6.2897 3.536e-50
+    Nt5c1a   561.51       -2.4999          -5.6566 1.438e-48
+     Itih5  1262.39       -2.4104          -5.3163 1.402e-41
+    Olfml1   654.99       -1.7814          -3.4376 1.003e-37
+     Psat1  6294.17       -1.2980          -2.4590 1.262e-36
+      Abat  1838.70       -1.5133          -2.8547 2.223e-36
+     Gstm2   927.70       -2.0582          -4.1646 3.170e-35
+      Drp2   493.78       -1.5409          -2.9097 3.170e-35
+     Gsg1l   968.39       -2.2908          -4.8933 3.384e-35
+   Slc15a2  2310.12       -1.3846          -2.6110 1.052e-34
+     P2rx6   182.94       -3.0513          -8.2894 4.934e-34
+     Gstm1  5224.80       -1.5515          -2.9312 4.934e-34
+      Nnat  4620.97       -1.2480          -2.3751 1.059e-33
+      Fmo1   445.43       -3.5703         -11.8786 2.272e-33
+    Akap13   439.49        1.4557           2.7430 1.016e-32

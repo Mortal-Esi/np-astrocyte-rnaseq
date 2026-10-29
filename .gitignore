@@ -16,3 +16,5 @@ results/tximport/txi.rds
 .Rproj.user/
 results/explore/controls_b500_vs_b50.tsv
 results/deseq2/dds.rds
+results/deseq2/*.tsv
+!results/deseq2/deg_summary.tsv
