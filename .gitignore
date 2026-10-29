@@ -6,3 +6,6 @@ data/ref/*
 .DS_Store
 .Rhistory
 .RData
+results/qc/fastqc/
+results/qc/fastp/
+results/qc/multiqc/multiqc_data/
