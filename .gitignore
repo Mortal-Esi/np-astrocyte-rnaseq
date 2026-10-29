@@ -11,3 +11,6 @@ results/qc/fastp/
 results/qc/multiqc/multiqc_data/
 results/salmon/SRR*/
 results/salmon/*.log
+.Rproj.user
+results/tximport/txi.rds
+.Rproj.user/
