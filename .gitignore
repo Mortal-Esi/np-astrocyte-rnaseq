@@ -9,3 +9,5 @@ data/ref/*
 results/qc/fastqc/
 results/qc/fastp/
 results/qc/multiqc/multiqc_data/
+results/salmon/SRR*/
+results/salmon/*.log
