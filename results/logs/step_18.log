@@ -1,0 +1,11 @@
+qvalue::qvalue() could not estimate q-values; the qvalue column is NA and p.adjust is unaffected. Reason: missing values and NaN's not allowed if 'na.rm' is FALSE
+qvalue::qvalue() could not estimate q-values; the qvalue column is NA and p.adjust is unaffected. Reason: missing values and NaN's not allowed if 'na.rm' is FALSE
+Warning messages:
+1: In prepare_gsea_inputs(geneList, scoreType, exponent) :
+  There are ties in the preranked stats (0.01% of the list). The order of those tied genes will be arbitrary, which may produce unexpected results.
+2: In prepare_gsea_inputs(geneList, scoreType, exponent) :
+  There are ties in the preranked stats (0.01% of the list). The order of those tied genes will be arbitrary, which may produce unexpected results.
+3: In prepare_gsea_inputs(geneList, scoreType, exponent) :
+  There are ties in the preranked stats (0.01% of the list). The order of those tied genes will be arbitrary, which may produce unexpected results.
+4: In prepare_gsea_inputs(geneList, scoreType, exponent) :
+  There are ties in the preranked stats (0.01% of the list). The order of those tied genes will be arbitrary, which may produce unexpected results.

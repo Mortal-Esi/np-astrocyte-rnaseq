@@ -18,5 +18,5 @@ q <- ggplot(b,aes(dose,model,fill=NES))+geom_tile(colour="white",linewidth=.8)+
  scale_fill_gradient2(low="#ab6e58",mid="#f8f8f4",high="#63aea4",midpoint=0,limits=c(-2.2,2.2))+
  labs(title="B    Enrichment across model fits",subtitle="Dot = BH-adjusted P < 0.05 across six tests per fit",x="Nominal mass concentration (µg/mL)",y=NULL,fill="NES")+style+theme(panel.grid=element_blank())
 fig <- p/q+plot_layout(heights=c(1,1.07))
-ggsave("manuscript/Figure1.pdf",fig,width=8,height=8,device="pdf")
-ggsave("manuscript/Figure1.png",fig,width=8,height=8,dpi=220)
+ggsave("results/figures/fig7_dose_response.pdf",fig,width=8,height=8,device="pdf")
+ggsave("results/figures/fig7_dose_response.png",fig,width=8,height=8,dpi=220)

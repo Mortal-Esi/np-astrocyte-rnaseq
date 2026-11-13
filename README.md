@@ -73,7 +73,7 @@ Rat neural-stem-cell-derived astrocytes were exposed for seven days to 50 nm or 
 ## Repository layout and how to run
 
 ```
-scripts/        steps 00–16 via run_all.sh, steps 17–20 for interaction sensitivity, dose response and manuscript figures
+scripts/        steps 00–21 via run_all.sh, from raw reads through dose analyses, figures and block validation
 results/        logs, tables and figures (large intermediate files are not tracked)
 data/           raw reads and reference (not tracked; recreated by steps 01–03)
 samples.csv     sample sheet: run, GSM, particle series, dose, group, replicate
@@ -81,9 +81,9 @@ samples.csv     sample sheet: run, GSM, particle series, dose, group, replicate
 
 ```bash
 conda activate rnaseq                 # conda-forge + bioconda env (results/logs/conda_environment.yml)
-bash scripts/run_all.sh 01 16         # from a project clone with dependencies installed
+bash scripts/run_all.sh 01 21         # from a project clone with dependencies installed
 bash scripts/run_all.sh 06 16         # R analysis only, from Salmon output
-Rscript scripts/17_interaction_robustness.R  # requires txi.rds and dds.rds
+bash scripts/run_all.sh 17 21         # requires txi.rds, dds.rds and upstream annotation
 ```
 
 For a processed-data restart, step 06 needs the GTF and per-run Salmon outputs. Steps 07 onward use local RDS objects created by the pipeline. A fresh clone includes compressed result tables, while several downstream scripts expect plain TSVs. Create these inputs before restarting downstream. Step 00 currently assumes a fixed home-directory project path and can move files from Downloads. The Conda export covers command-line tools only in part; install aria2 and the R/Bioconductor packages listed in the session log separately.
@@ -107,12 +107,8 @@ Under `results/interaction/`, `interaction_genes.tsv.gz` contains the full and g
 
 ## Dose-response analysis and manuscript
 
-At 100 µg/mL, the ciliary and complement signatures reached the adjusted significance threshold in the inferred-block model, the group-only model and all four block-omission fits. At 10 µg/mL the ciliary signature retained its direction in all six fits and reached the threshold in five. Omitting block 3 raised its adjusted P value to 0.161. [Sensitivity results](results/dose_sensitivity/pathway_stability.tsv) · [Figure 1](manuscript/Figure1.pdf)
+At 100 µg/mL, the ciliary and complement signatures reached the adjusted significance threshold in the inferred-block model, the group-only model and all four block-omission fits. At 10 µg/mL the ciliary signature retained its direction in all six fits and reached the threshold in five. Omitting block 3 raised its adjusted P value to 0.161. [Sensitivity results](results/dose_sensitivity/pathway_stability.tsv) · [Manuscript Figure 3](results/figures/fig7_dose_response.pdf)
 
-The working manuscript includes [Results](manuscript/Results.md) and [Methods and Discussion](manuscript/Methods_and_Discussion.md). Raw sequencing data are available under [GSE256038](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256038). From the repository root, after generating the local DESeq2 and tximport objects and running step 17, use the following commands. The final command also works directly from the tracked tables.
+The complete article is available as [editable Word](manuscript/Manuscript.docx), [PDF](manuscript/Manuscript.pdf) and [Markdown source](manuscript/Manuscript.md). Figure 1 uses the original volcano plots, Figure 2 the original signature plots, and Figure 3 the across-dose sensitivity plot. All three source figures are in [results/figures](results/figures). The [journal figure archive](manuscript/Figures.zip) uses manuscript numbering.
 
-```sh
-Rscript --vanilla scripts/18_dose_response.R . results/dose_response
-Rscript --vanilla scripts/19_dose_sensitivity.R . results/dose_sensitivity
-Rscript --vanilla scripts/20_manuscript_figure.R
-```
+Step 21 rebuilds the BioSample map from the archived NCBI XML, compares model counts, runs the within-group permutation control and writes its summary under [results/block_validation](results/block_validation). The [verification script](scripts/verify_results.py) checks the manuscript counts directly against the tracked tables. Run it from the root with `python3 scripts/verify_results.py`. To rebuild Word, PDF and the figure archive from the Markdown and canonical figures, use `bash scripts/build_manuscript.sh` (Pandoc, python-docx and LibreOffice required).
