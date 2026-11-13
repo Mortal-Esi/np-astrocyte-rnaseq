@@ -1,0 +1,5 @@
+min_baseMean	retained	with_padj	full_hits	unblocked_hits	shared_hits_same_direction	full_hits_same_sign_loo	full_hits_same_sign_blocks	direction_stable	strict_stable
+0	16726	13807	990	89	89	990	926	926	144
+10	15171	13807	990	89	89	990	926	926	144
+20	13684	13684	987	89	89	987	923	923	144
+50	12064	12064	938	84	84	938	881	881	140

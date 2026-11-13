@@ -1,0 +1,3 @@
+size_nm	unblocked	observed	draws	min	median	max	at_least_observed	one_sided_plus_one
+50	1552	4320	39	1382	1506	1662	0	0.025
+500	3028	5736	39	2839	2967	3186	0	0.025

@@ -36,10 +36,10 @@ ve <- round(100 * pc$sdev^2 / sum(pc$sdev^2), 1)
 pd <- data.frame(pc$x[, 1:3], size = paste(sub("[ABCD]$", "", cd$group), "nm series"), dose = factor(cd$dose_ugml), replicate = cd$replicate)
 p1a <- ggplot(pd, aes(PC1, PC2, colour = dose, shape = size)) + geom_point(size = 2.6) +
   scale_colour_manual(values = c("0" = "grey60", "1" = "#fdb863", "10" = "#e66101", "100" = "#7f2704"), name = "dose (ug/ml)") +
-  labs(x = sprintf("PC1 (%.1f%%)", ve[1]), y = sprintf("PC2 (%.1f%%)", ve[2]), title = "A. PC1 = dose 100")
+  labs(x = sprintf("PC1 (%.1f%%)", ve[1]), y = sprintf("PC2 (%.1f%%)", ve[2]), title = "A. PC1 by dose")
 p1b <- ggplot(pd, aes(PC2, PC3, colour = replicate, shape = size)) + geom_point(size = 2.6) +
   scale_colour_manual(values = rep_col) +
-  labs(x = sprintf("PC2 (%.1f%%)", ve[2]), y = sprintf("PC3 (%.1f%%)", ve[3]), title = "B. PC2 / PC3 = experiment (replicate)")
+  labs(x = sprintf("PC2 (%.1f%%)", ve[2]), y = sprintf("PC3 (%.1f%%)", ve[3]), title = "B. PC2 and PC3 by inferred block")
 if (requireNamespace("patchwork", quietly = TRUE)) {
   save_fig(patchwork::wrap_plots(p1a, p1b, nrow = 1), "fig1_pca", 10, 4)
 } else { save_fig(p1a, "fig1a_pca_dose", 5.2, 4); save_fig(p1b, "fig1b_pca_replicate", 5.2, 4) }
@@ -52,12 +52,12 @@ d2 <- rbind(
   data.frame(size = c("50 nm", "500 nm"), model = "published table",
              DEG = vs_auth$authors_DEG_in_shared[match(c("50D_vs_50A", "500D_vs_500A"), vs_auth$contrast)]))
 d2$model <- factor(d2$model, levels = c("published table", "noRep_apeglm", "paired_apeglm"),
-                   labels = c("published\n(authors)", "our data,\nunpaired model", "our data,\npaired model"))
+                   labels = c("published\n(authors)", "our data,\ngroup-only model", "our data,\nblocked model"))
 p2 <- ggplot(d2, aes(model, DEG, fill = model)) + geom_col(width = 0.7) + geom_text(aes(label = DEG), vjust = -0.3, size = 3.2) +
   facet_wrap(~ size) + scale_fill_manual(values = c("grey60", "#92c5de", "#2166ac"), guide = "none") +
   scale_y_continuous(expand = expansion(mult = c(0, 0.1))) +
   labs(x = NULL, y = "DEGs (padj < 0.05, |FC| >= 1.5)",
-       title = "Modelling the paired experiments increases power",
+       title = "More genes meet both cutoffs with inferred blocks",
        subtitle = "genes present in both our annotation and the published table; dose 100 vs control")
 save_fig(p2, "fig2_paired_design", 7, 4)
 
@@ -91,7 +91,7 @@ p4 <- ggplot(m[order(m$class), ], aes(log2FC_shrunk_50, log2FC_shrunk_500, colou
   geom_point(size = 0.7, alpha = 0.7) + scale_colour_manual(values = c("grey70", "#5e3c99", "#e66101"), name = "size x dose interaction\n(padj < 0.05)") +
   label_layer(m[m$gene_name %in% key, ], aes(label = gene_name), colour = "black", size = 2.6) +
   labs(x = "50 nm: log2FC dose 100 vs control", y = "500 nm: log2FC dose 100 vs control",
-       title = "Most of the response is shared; a subset depends on particle size",
+       title = "High-dose responses at equal nominal mass concentration",
        subtitle = sprintf("%d genes significant at dose 100 in either size", nrow(m))) +
   coord_equal() + guides(colour = guide_legend(override.aes = list(size = 2.5)))
 save_fig(p4, "fig4_size_specificity", 7, 6)
@@ -134,7 +134,7 @@ p6 <- ggplot(d6, aes(l2fc, gene)) + geom_vline(xintercept = 0, colour = "grey60"
   geom_point(aes(colour = replicate), size = 2.2, position = position_jitter(height = 0.12, width = 0, seed = 1)) +
   geom_point(data = est, shape = 23, size = 3, fill = "black") +
   scale_colour_manual(values = rep_col) + facet_wrap(~ size) +
-  labs(x = "log2 fold change, dose 100 vs control", y = NULL, title = "Does every experiment agree?",
-       subtitle = "dots: inside each replicate; diamond: model estimate (shrunken). Snca is driven by rep3 alone")
+  labs(x = "log2 fold change, dose 100 vs control", y = NULL, title = "High-dose changes within each inferred block",
+       subtitle = "Dots show within-block changes. Diamonds show shrunken model estimates.")
 save_fig(p6, "fig6_replicate_check", 8, 4.5)
 cat("done — see", out, "\n")

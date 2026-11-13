@@ -1,0 +1,9 @@
+model	size_nm	universe	genes	with_padj	padj05	padj05_apeglm_FC1.5
+unblocked	50	all	16726	16714	1553	570
+unblocked	50	shared	12502	12491	1299	449
+unblocked	500	all	16726	16714	3028	1495
+unblocked	500	shared	12510	12499	2659	1256
+inferred	50	all	16726	16726	4322	1028
+inferred	50	shared	12502	12502	3687	806
+inferred	500	all	16726	16726	5736	2215
+inferred	500	shared	12510	12510	5043	1858
