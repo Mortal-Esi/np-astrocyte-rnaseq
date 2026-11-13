@@ -73,7 +73,7 @@ Rat neural-stem-cell-derived astrocytes were exposed for seven days to 50 nm or 
 ## Repository layout and how to run
 
 ```
-scripts/        steps 00–16 via run_all.sh, step 17 as a separate sensitivity analysis
+scripts/        steps 00–16 via run_all.sh, steps 17–20 for interaction sensitivity, dose response and manuscript figures
 results/        logs, tables and figures (large intermediate files are not tracked)
 data/           raw reads and reference (not tracked; recreated by steps 01–03)
 samples.csv     sample sheet: run, GSM, particle series, dose, group, replicate
@@ -104,3 +104,15 @@ The [sample map](results/block_validation/biosample_map.tsv), [model counts](res
 ## Interaction sensitivity outputs
 
 Under `results/interaction/`, `interaction_genes.tsv.gz` contains the full and group-only estimates, four omission fits, individual-block differences in log2 normalized counts (pseudocount 0.5), and pointwise 95% Wald intervals. Positive values mean that the signed response is greater in the 50 nm series at equal nominal mass concentration. The baseMean cutoffs 10, 20 and 50 are reporting filters applied after genome-wide adjustment. Targeted GSEA ranks finite Wald statistics and adjusts across three selected sets within each fit. This is a follow-up to the original discovery analysis. [Selected gene estimates](results/interaction/selected_interactions.pdf)
+
+## Dose-response analysis and manuscript
+
+At 100 µg/mL, the ciliary and complement signatures reached the adjusted significance threshold in the inferred-block model, the group-only model and all four block-omission fits. At 10 µg/mL the ciliary signature retained its direction in all six fits and reached the threshold in five. Omitting block 3 raised its adjusted P value to 0.161. [Sensitivity results](results/dose_sensitivity/pathway_stability.tsv) · [Figure 1](manuscript/Figure1.pdf)
+
+The working manuscript includes [Results](manuscript/Results.md) and [Methods and Discussion](manuscript/Methods_and_Discussion.md). Raw sequencing data are available under [GSE256038](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256038). From the repository root, after generating the local DESeq2 and tximport objects and running step 17, use the following commands. The final command also works directly from the tracked tables.
+
+```sh
+Rscript --vanilla scripts/18_dose_response.R . results/dose_response
+Rscript --vanilla scripts/19_dose_sensitivity.R . results/dose_sensitivity
+Rscript --vanilla scripts/20_manuscript_figure.R
+```
