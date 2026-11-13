@@ -1,5 +1,7 @@
 # Reanalysis of polystyrene nano- and microplastic exposure in rat astrocytes (RNA-seq)
 
+**Cite the archived analysis (v1.2.0):** Eslami MJ. RNA-seq reanalysis of ciliary and complement responses to polystyrene exposure in rat astrocyte cultures. Zenodo (2026). [DOI: 10.5281/zenodo.24197910](https://doi.org/10.5281/zenodo.24197910).
+
 **Mohammad Javad Eslami** · independent reanalysis of public data (GEO [GSE256038](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256038) / BioProject PRJNA1077930)
 
 Rat neural-stem-cell-derived astrocytes were exposed for seven days to 50 nm or 500 nm polystyrene at equal nominal mass concentrations (0, 1, 10 and 100 µg/mL). I reprocessed all 32 RNA-seq libraries. Both series show a broad response at 100 µg/mL. Four samples per group have suffixes 01–04 in the submitted BioSample titles. A model using those suffixes as blocks captures cross-group expression structure. The experimental origin of that structure remains unresolved. Direct comparisons of the two responses at equal mass concentration identify candidate differences in homeostatic and ciliary programmes.

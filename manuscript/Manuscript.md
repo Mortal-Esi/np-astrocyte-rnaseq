@@ -113,7 +113,7 @@ BH, Benjamini–Hochberg; GEO, Gene Expression Omnibus; GSEA, gene set enrichmen
 
 **Consent for publication.** Not applicable.
 
-**Availability of data and materials.** Raw sequencing data, sample metadata and the original differential-expression tables are available through GEO accession GSE256038 [2]. The analysis code, version information, processed gene tables, sample map, gene-set memberships, block omissions and figure sources are available in release v1.1.0 of the public repository [15].
+**Availability of data and materials.** Raw sequencing data, sample metadata and the original differential-expression tables are available through GEO accession GSE256038 [2]. The analysis code, version information, processed gene tables, sample map, gene-set memberships, block omissions and figure sources are available in the Zenodo archive of the v1.2.0 analysis [15].
 
 **Competing interests.** The author declares no competing interests.
 
@@ -153,7 +153,7 @@ BH, Benjamini–Hochberg; GEO, Gene Expression Omnibus; GSEA, gene set enrichmen
 
 14. Wu T, Hu E, Xu S, Chen M, Guo P, Dai Z, et al. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. The Innovation. 2021;2:100141. https://doi.org/10.1016/j.xinn.2021.100141
 
-15. Eslami MJ. Reanalysis of polystyrene nano- and microplastic exposure in rat astrocytes. Version 1.1.0. GitHub. 2026. https://github.com/Mortal-Esi/np-astrocyte-rnaseq/releases/tag/v1.1.0
+15. Eslami MJ. RNA-seq reanalysis of ciliary and complement responses to polystyrene exposure in rat astrocyte cultures. Version 1.2.0. Zenodo. 2026. https://doi.org/10.5281/zenodo.24197910
 
 16. Escartin C, Galea E, Lakatos A, O’Callaghan JP, Petzold GC, Serrano-Pozo A, et al. Reactive astrocyte nomenclature, definitions, and future directions. Nature Neuroscience. 2021;24:312-325. https://doi.org/10.1038/s41593-020-00783-4
 
