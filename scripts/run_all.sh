@@ -19,9 +19,9 @@
 
 set -euo pipefail
 cd "$(dirname "$0")/.."
-from="${1:-00}"; to="${2:-21}"
+from="${1:-00}"; to="${2:-23}"
 
-steps=(00 01 02 03 04 05 06 07 07b 08 09 10 11 12 13 14 15 16 17 18 19 20 21)
+steps=(00 01 02 03 04 05 06 07 07b 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23)
 cmd_of() {                               # plain case statement: macOS ships bash 3.2 (no associative arrays)
   case "$1" in
     00) echo "bash scripts/00_setup_check.sh" ;;      01) echo "bash scripts/01_download.sh" ;;
@@ -37,6 +37,8 @@ cmd_of() {                               # plain case statement: macOS ships bas
     18) echo "Rscript --vanilla scripts/18_dose_response.R . results/dose_response" ;;
     19) echo "Rscript --vanilla scripts/19_dose_sensitivity.R" ;;
     20) echo "Rscript --vanilla scripts/20_manuscript_figure.R" ;;
+    23) echo "Rscript --vanilla scripts/23_external_marker_sets.R" ;;
+    22) echo "Rscript --vanilla scripts/22_amplitude_matched_sets.R" ;;
     21) echo "bash scripts/21_block_validation.sh" ;;
   esac
 }

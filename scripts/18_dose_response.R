@@ -33,6 +33,13 @@ run_gsea <- function(gl,sets) {
   stopifnot(setequal(g$ID,names(sets)))
   g[,c("ID","setSize","NES","pvalue","core_enrichment")]
 }
+# Reuse the same Monte Carlo enrichment estimates for overlapping high-dose tests.
+high_dose <- read.delim(file.path(root,"results/interaction/targeted_sets.tsv"))
+high_dose_sets <- function(fit_name) {
+  g <- subset(high_dose, fit==fit_name & pathway %in% names(sets))
+  stopifnot(nrow(g)==length(sets), !anyDuplicated(g$pathway))
+  data.frame(ID=g$pathway,setSize=g$size,NES=g$NES,pvalue=g$pval,core_enrichment=g$core_enrichment)
+}
 for (i in seq_along(c("B","C","D"))) {
   tag <- c("B","C","D")[i]
   dose <- c(1,10,100)[i]
@@ -44,7 +51,7 @@ for (i in seq_along(c("B","C","D"))) {
   ok <- ok[order(-abs(r$stat[ok]),rownames(d)[ok])]
   ok <- ok[!duplicated(sym[ok])]
   gl <- sort(setNames(r$stat[ok],sym[ok]),decreasing=TRUE)
-  gsea_rows[[i]] <- data.frame(dose,run_gsea(gl,sets))
+  gsea_rows[[i]] <- data.frame(dose,if (dose==100) high_dose_sets("full") else run_gsea(gl,sets))
   if (dose==100) {
     variants <- list()
     for (k in names(sets)) for (g in intersect(sets[[k]],names(gl)))

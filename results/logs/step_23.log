@@ -1,0 +1,7 @@
+Warning messages:
+1: In prepare_gsea_inputs(geneList, scoreType, exponent) :
+  There are ties in the preranked stats (0.01% of the list). The order of those tied genes will be arbitrary, which may produce unexpected results.
+2: In prepare_gsea_inputs(geneList, scoreType, exponent) :
+  There are ties in the preranked stats (0.01% of the list). The order of those tied genes will be arbitrary, which may produce unexpected results.
+3: In prepare_gsea_inputs(geneList, scoreType, exponent) :
+  There are ties in the preranked stats (0.01% of the list). The order of those tied genes will be arbitrary, which may produce unexpected results.

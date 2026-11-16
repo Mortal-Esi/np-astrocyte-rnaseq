@@ -24,9 +24,17 @@ genes <- ann$gene_name[match(ids,ann$gene)]
 sets_file <- read.delim("results/interaction/set_members.tsv")
 sets <- split(as.character(sets_file$values),sets_file$ind)[c("ependymal_cilia","complement_activation")]
 mapping <- stack(sets)
+# Reuse the same Monte Carlo enrichment estimates for overlapping high-dose tests.
+high_dose <- read.delim("results/interaction/targeted_sets.tsv")
+high_dose_sets <- function(fit_name) {
+  g <- subset(high_dose, fit==fit_name & pathway %in% names(sets))
+  stopifnot(nrow(g)==length(sets), !anyDuplicated(g$pathway))
+  data.frame(ID=g$pathway,setSize=g$size,NES=g$NES,pvalue=g$pval,core_enrichment=g$core_enrichment)
+}
 evaluate <- function(d,label) {
   set.seed(20261113)
   rows <- lapply(seq_along(c("B","C","D")),function(i) {
+    if (i==3L) return(data.frame(fit=label,dose=100,high_dose_sets(label)))
     tag <- c("B","C","D")[i]
     contrast <- list(c(paste0("group_50",tag,"_vs_50A"),"group_500A_vs_50A"),paste0("group_500",tag,"_vs_50A"))
     r <- results(d,contrast=contrast,alpha=.05)

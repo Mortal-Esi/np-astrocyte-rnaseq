@@ -81,17 +81,21 @@ sets <- list(homeostatic_astro=c("Aqp4","Slc1a2","Slc1a3","Glul","Kcnj10","Aldh1
  ependymal_cilia=c("Foxj1","Dnah5","Dnah9","Rsph1","Rsph4a","Ccdc153","Tmem212","Dynlrb2","Spag6","Sntn"),
  complement_activation=unique(na.omit(AnnotationDbi::select(org.Rn.eg.db,keys="GO:0006956",keytype="GOALL",columns="SYMBOL")$SYMBOL)))
 save_table(stack(sets),"set_members.tsv")
-set.seed(20261113)
 path_results <- lapply(names(fits),function(k) {
+  # Seed immediately before each GSEA call so that every fit draws from the same
+  # initial RNG state.
+  set.seed(20261113)
   r <- fits[[k]]
   keep <- is.finite(r$stat) & !is.na(genes) & nzchar(genes)
-  stats <- sort(setNames(r$stat[keep],genes[keep]),decreasing=TRUE)
-  stats <- stats[order(-abs(stats),names(stats))]
-  stats <- sort(stats[!duplicated(names(stats))],decreasing=TRUE)
+  # Match the identifier tie-break used in steps 18 and 19.
+  ok <- which(keep)
+  ok <- ok[order(-abs(r$stat[ok]), ids[ok])]
+  ok <- ok[!duplicated(genes[ok])]
+  stats <- sort(setNames(r$stat[ok],genes[ok]),decreasing=TRUE)
   mapping <- stack(sets)
   g <- as.data.frame(GSEA(stats, TERM2GENE=data.frame(term=mapping$ind,gene=mapping$values), minGSSize=4,maxGSSize=500,pvalueCutoff=1,eps=0,seed=TRUE,verbose=FALSE))
   stopifnot(setequal(g$ID,names(sets)))
-  data.frame(fit=k,pathway=g$ID,size=g$setSize,NES=g$NES,pval=g$pvalue,padj=g$p.adjust)
+  data.frame(fit=k,pathway=g$ID,size=g$setSize,NES=g$NES,pval=g$pvalue,padj=g$p.adjust,core_enrichment=g$core_enrichment)
 })
 save_table(do.call(rbind,path_results),"targeted_sets.tsv")
 writeLines(capture.output(sessionInfo()),file.path(out,"sessionInfo.txt"))

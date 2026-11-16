@@ -58,7 +58,11 @@ tidy <- function(res, shr) {
   df[order(df$padj), ]
 }
 summarise <- function(name, df, res) {
-  s <- df$padj < 0.05 & !is.na(df$padj)
+  # Count on the unrounded adjusted P values. `tidy()` stores signif(padj, 4) for
+  # readability, which rounds a value such as 0.049996 up to exactly 0.05 and drops
+  # the gene from the count (Zfp619 in 500D_vs_500A: 5735 reported instead of 5736).
+  padj_full <- res$padj[match(df$gene_id, rownames(res))]
+  s <- !is.na(padj_full) & padj_full < 0.05
   a <- s & abs(df$FC_shrunk_signed) >= 1.5
   data.frame(contrast = name, tested = sum(!is.na(df$padj)),
              padj05 = sum(s), up = sum(s & df$log2FC > 0), down = sum(s & df$log2FC < 0),

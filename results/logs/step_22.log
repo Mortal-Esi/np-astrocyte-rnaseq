@@ -1,0 +1,10 @@
+  n_genes median_abs_l50 median_abs_l500 slope_50_on_500
+1   16726      0.2074962       0.2231419       0.4527239
+                    set n_represented observed_mean_diff matched_null_mean
+1 complement_activation            18          0.5888229         0.1317077
+2       ependymal_cilia             7          0.7448120         0.7389869
+3     homeostatic_astro            10          0.4695938         0.3636956
+  matched_null_sd      excess  p_one_sided BH_three_sets
+1       0.1009106 0.457115181 0.0000499975  0.0001499925
+2       0.2282197 0.005825022 0.4797760112  0.4797760112
+3       0.1649257 0.105898134 0.2512874356  0.3769311534

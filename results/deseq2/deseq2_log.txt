@@ -11,7 +11,7 @@ coefficients (ref 50A): Intercept, replicate_rep2_vs_rep1, replicate_rep3_vs_rep
                    50D_vs_50A  16726   4322 2430 1892         1028
                  500B_vs_500A  16726      1    0    1            0
                  500C_vs_500A  15753     39   19   20            9
-                 500D_vs_500A  16726   5735 2943 2792         2215
+                 500D_vs_500A  16726   5736 2943 2793         2215
                   50D_vs_500D  15753   2581 1463 1118          541
  response50_minus_response500  13807    990  707  283          443
  cooks_outlier_genes low_count_filtered
@@ -29,7 +29,7 @@ note: response50_minus_response500 uses UNSHRUNKEN log2FC (no shrinkage possible
 
 == 3. Sensitivity check: same dose-100 contrasts WITHOUT replicate in the model
 padj<0.05 without replicate term — 50D vs 50A: 1552 | 500D vs 500A: 3028 
-padj<0.05 with replicate term    — 50D vs 50A: 4322 | 500D vs 500A: 5735 
+padj<0.05 with replicate term    — 50D vs 50A: 4322 | 500D vs 500A: 5736 
 
 == 4. Top 15 genes (by padj) for dose 100
 

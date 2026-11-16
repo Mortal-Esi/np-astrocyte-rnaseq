@@ -2,6 +2,11 @@
 
 **Cite the archived analysis (v1.2.0):** Eslami MJ. RNA-seq reanalysis of ciliary and complement responses to polystyrene exposure in rat astrocyte cultures. Zenodo (2026). [DOI: 10.5281/zenodo.24197910](https://doi.org/10.5281/zenodo.24197910).
 
+**Major revision under review.** Step 22 conditions on the signed high-dose 500 nm coefficient. Of the three selected sets, complement showed an excess above this matched background (+0.457 log2 units, BH-adjusted P = 0.00015). Ciliary and homeostatic markers declined more strongly in the 500 nm series, with little evidence of additional set-specific excess. These comparisons are exploratory and use estimated effects from the same cultures. [Matched results](results/amplitude/set_excess_over_amplitude.tsv).
+
+The DOI above identifies the preceding v1.2.0 archive. The review bundle additionally includes the tximport input and the rebuilt DESeq2 object under results/tximport and results/deseq2. With the recorded R dependencies, rerun the main fit with `Rscript --vanilla scripts/08_deseq2.R`, or rerun the review test directly with `Rscript --vanilla scripts/22_amplitude_matched_sets.R`. Inputs in this bundle allow a processed-data restart without new raw downloads.
+
+
 **Mohammad Javad Eslami** · independent reanalysis of public data (GEO [GSE256038](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256038) / BioProject PRJNA1077930)
 
 Rat neural-stem-cell-derived astrocytes were exposed for seven days to 50 nm or 500 nm polystyrene at equal nominal mass concentrations (0, 1, 10 and 100 µg/mL). I reprocessed all 32 RNA-seq libraries. Both series show a broad response at 100 µg/mL. Four samples per group have suffixes 01–04 in the submitted BioSample titles. A model using those suffixes as blocks captures cross-group expression structure. The experimental origin of that structure remains unresolved. Direct comparisons of the two responses at equal mass concentration identify candidate differences in homeostatic and ciliary programmes.
@@ -22,8 +27,8 @@ Rat neural-stem-cell-derived astrocytes were exposed for seven days to 50 nm or 
    As a negative control, I independently shuffled the four labels within each group and refitted DESeq2 39 times (seed 20261113). Using the same contrast extraction for all fits, observed counts were 4,320 / 5,736, versus shuffled medians of 1,506 / 2,967. Neither series reached its observed count in any shuffle. This tests whether the observed labels capture expression structure. It cannot identify a shared culture, experimental day or sequencing batch. The control uses DESeq2 contrast extraction throughout, whereas the table uses named coefficients. Counts near the threshold depend slightly on this choice.
 
 4. **Shared response.** Both series show induction of inflammatory and chemokine transcripts, including *Ccl2*, *Ccl7* and *Cxcl10*, alongside *Gpnmb*, *Lgals3*, *Hspb1* and *Lcn2*. Synapse-related and glutamate-receptor gene sets shift downwards.
-5. **Reactive-astrocyte signatures.** Pan-reactive and A2 gene sets show positive enrichment in both series. The A1 set does not reach significance in either series. These are transcriptomic signatures in bulk cultures.
-6. **Differences at equal mass concentration.** The direct contrast compares (50 nm high dose − its control) with (500 nm high dose − its control) on the log2 scale. Step 08 reports 990 genes at adjusted P < 0.05. The full-data interaction supports a greater downward shift of homeostatic and ciliary gene sets in the 500 nm series. Complement enrichment favours the 50 nm series. Of the 990 full-model hits, 926 have the same direction in all four leave-one-block-out fits and all four individual blocks, and 144 also retain adjusted P < 0.05 in all four refits. The group-only model calls 89 interaction genes; all 89 agree with the blocked model. In a targeted three-set GSEA, cilia and complement retain direction and significance across all four refits. The homeostatic set retains direction but reaches adjusted P = 0.063 when block 2 is omitted. These within-study sensitivity checks use overlapping samples.
+5. **Exploratory reactive signatures.** The biological hypothesis preceded data inspection, but the initial PAN/A1/A2 memberships were reconstructed from memory after inspection. Pan-reactive and A2 gene sets show positive enrichment in both series. The A1 set does not reach significance in either series. These are transcriptomic signatures in bulk cultures.
+6. **Differences at equal mass concentration.** The ciliary and homeostatic sets were hand-selected after inspecting the high-dose results. Their initial enrichment P values are exploratory. The direct contrast compares (50 nm high dose − its control) with (500 nm high dose − its control) on the log2 scale. Step 08 reports 990 genes at adjusted P < 0.05. The full-data interaction supports a greater downward shift of homeostatic and ciliary gene sets in the 500 nm series. Complement enrichment favours the 50 nm series. Of the 990 full-model hits, 926 have the same direction in all four leave-one-block-out fits and all four individual blocks, and 144 also retain adjusted P < 0.05 in all four refits. The group-only model calls 89 interaction genes; all 89 agree with the blocked model. In a targeted three-set GSEA, cilia and complement retain direction and significance across all four refits. The homeostatic set retains direction but reaches adjusted P = 0.063 when block 2 is omitted. These within-study sensitivity checks use overlapping samples.
 7. **Statistically stable expression changes with exploratory biological interpretation.** *Gpnmb* increases about tenfold in both series. In the 500 nm series, *Uchl1* and *Dnajc6* increase and *Pink1* decreases. These genes were selected for follow-up based on prior disease associations. Their expression changes in this culture cannot establish a Parkinson disease mechanism.
 8. ***Npy* induction.** Estimated increases are about 30-fold at 50 nm and 120-fold at 500 nm. All four inferred blocks agree on direction. The published tables omit this gene, and independent confirmation is pending.
 
@@ -67,7 +72,7 @@ Rat neural-stem-cell-derived astrocytes were exposed for seven days to 50 nm or 
 - The submitted suffixes support an inferred block. PCA and within-group permutations assess expression structure. Identifying its biological or technical origin requires experimental records.
 - No decoy-aware Salmon index (a GRCr8 decoy index needs ~20 GB RAM; not feasible on the 8 GB machine used). Quality scores in the public reads are simplified.
 - Marker expression varies across inferred blocks and is compatible with differences in baseline composition. Cell proportions were not measured.
-- The A1/A2 classification is a simplification (Escartin *et al.* 2021); signatures were defined in mouse, and 4 A1 genes have no same-named rat gene.
+- The A1/A2 classification is a simplification (Escartin *et al.* 2021); signatures were defined in mouse, and the retained rat ranking has same-symbol matches for 7 of 12 A1 labels in the published panel. This is not a formal orthology comparison.
 - Many analyses were exploratory; findings beyond the high-confidence set (and *Npy* in particular) should be treated as hypotheses.
 - Methods §2.6 reports RNA extraction after seven days. Figure 2B shows astrocyte MTT viability at 100 µg/mL at approximately 70% of control for both sizes (visual estimates, three independent experiments). The authors describe the 500 nm result as a decreasing trend. This separate assay cannot quantify the contribution of viability or composition to any sequenced library.
 - Equal nominal mass does not equalize particle number or total geometric surface area. For spheres of the same density at their nominal diameters, 50 nm gives 1,000 times the number and ten times the total area of 500 nm per unit mass. Delivered dose, aggregation and effective contact area were not measured by this calculation.
@@ -75,7 +80,7 @@ Rat neural-stem-cell-derived astrocytes were exposed for seven days to 50 nm or 
 ## Repository layout and how to run
 
 ```
-scripts/        steps 00–21 via run_all.sh, from raw reads through dose analyses, figures and block validation
+scripts/        steps 00–23 via run_all.sh, from raw reads through dose analyses, figures and block validation
 results/        logs, tables and figures (large intermediate files are not tracked)
 data/           raw reads and reference (not tracked; recreated by steps 01–03)
 samples.csv     sample sheet: run, GSM, particle series, dose, group, replicate
@@ -83,9 +88,9 @@ samples.csv     sample sheet: run, GSM, particle series, dose, group, replicate
 
 ```bash
 conda activate rnaseq                 # conda-forge + bioconda env (results/logs/conda_environment.yml)
-bash scripts/run_all.sh 01 21         # from a project clone with dependencies installed
+bash scripts/run_all.sh 01 23         # from a project clone with dependencies installed
 bash scripts/run_all.sh 06 16         # R analysis only, from Salmon output
-bash scripts/run_all.sh 17 21         # requires txi.rds, dds.rds and upstream annotation
+bash scripts/run_all.sh 17 23         # requires txi.rds, dds.rds and upstream annotation
 ```
 
 For a processed-data restart, step 06 needs the GTF and per-run Salmon outputs. Steps 07 onward use local RDS objects created by the pipeline. A fresh clone includes compressed result tables, while several downstream scripts expect plain TSVs. Create these inputs before restarting downstream. Step 00 currently assumes a fixed home-directory project path and can move files from Downloads. The Conda export covers command-line tools only in part; install aria2 and the R/Bioconductor packages listed in the session log separately.
@@ -114,3 +119,9 @@ At 100 µg/mL, the ciliary and complement signatures reached the adjusted signif
 The complete article is available as [editable Word](manuscript/Manuscript.docx), [PDF](manuscript/Manuscript.pdf) and [Markdown source](manuscript/Manuscript.md). Figure 1 uses the original volcano plots, Figure 2 the original signature plots, and Figure 3 the across-dose sensitivity plot. All three source figures are in [results/figures](results/figures). The [journal figure archive](manuscript/Figures.zip) uses manuscript numbering.
 
 Step 21 rebuilds the BioSample map from the archived NCBI XML, compares model counts, runs the within-group permutation control and writes its summary under [results/block_validation](results/block_validation). The [verification script](scripts/verify_results.py) checks the manuscript counts directly against the tracked tables. Run it from the root with `python3 scripts/verify_results.py`. To rebuild Word, PDF and the figure archive from the Markdown and canonical figures, use `bash scripts/build_manuscript.sh` (Pandoc, python-docx and LibreOffice required).
+
+### Marker provenance and source sensitivity
+
+Original marker selection was post hoc, as detailed in the manuscript Methods. The ciliary list was informed by the high-dose GO ciliary result, and the homeostatic list by inspection of astrocyte markers. The initial PAN/A1/A2 memberships were entered from memory. [Membership and dates](data/marker_sources/sets_source.tsv) · [Liddelow panel and primer audit](data/marker_sources/liddelow_audit.tsv) · [Timestamped rule and hashes](claude/STATUS.md).
+
+Step 23 tests the printed Liddelow panels and two broader PanglaoDB cell-identity sets. The external ependymal and astrocyte sets retained the high-dose interaction direction. The astrocyte proxy also exceeded its matched background (adjusted P = 0.021); the ependymal proxy did not (0.067). These are sensitivity tests in the same study. Full results are under results/marker_sensitivity and results/amplitude.
