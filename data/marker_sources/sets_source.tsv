@@ -1,0 +1,238 @@
+origin	set	symbol	source	definition_date	selection	represented_same_symbol
+original	PAN_reactive	Lcn2	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Steap4	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	PAN_reactive	S1pr3	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Timp1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Hspb1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Cxcl10	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Cd44	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Osmr	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Cp	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Serpina3n	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	PAN_reactive	Aspg	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Vim	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	PAN_reactive	Gfap	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A1	H2-T23	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	A1	Serping1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A1	H2-D1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	A1	Ggta1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A1	Iigp1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	A1	Gbp2	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A1	Fbln5	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A1	Ugt1a1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A1	Fkbp5	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A1	Psmb8	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A1	Srgn	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	A1	Amigo2	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	Clcf1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	Tgm1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	Ptx3	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	S100a10	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	Sphk1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	Cd109	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	Ptgs2	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	A2	Emp1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	Slc10a6	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	A2	Tm4sf1	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	False
+original	A2	B3gnt5	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	A2	Cd14	scripts/14_followup.R; author reconstructed from memory	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Aqp4	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Slc1a2	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Slc1a3	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Glul	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Kcnj10	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Aldh1l1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Gja1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Sparcl1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Atp1a2	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	homeostatic_astro	Slc4a4	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	ependymal_cilia	Foxj1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	ependymal_cilia	Dnah5	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	ependymal_cilia	Dnah9	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	ependymal_cilia	Rsph1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	ependymal_cilia	Rsph4a	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	ependymal_cilia	Ccdc153	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	False
+original	ependymal_cilia	Tmem212	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	ependymal_cilia	Dynlrb2	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	ependymal_cilia	Spag6	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	False
+original	ependymal_cilia	Sntn	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	False
+original	proliferation	Mki67	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	proliferation	Top2a	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	proliferation	Ccnb1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	proliferation	Cdk1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	proliferation	Birc5	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	proliferation	Aurkb	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	proliferation	Cenpf	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	proliferation	Pcna	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	oligo_lineage	Pdgfra	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	oligo_lineage	Olig2	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	oligo_lineage	Cspg4	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	oligo_lineage	Sox10	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	oligo_lineage	Plp1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	oligo_lineage	Mbp	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	oligo_lineage	Mog	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	neuronal	Rbfox3	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	neuronal	Tubb3	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	neuronal	Syt1	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	neuronal	Snap25	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	neuronal	Stmn2	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+original	neuronal	Dcx	scripts/14_followup.R; author-selected markers	unknown; archived by 2026-10-30	post hoc	True
+external	Liddelow_PAN_reactive	Lcn2	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Steap4	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_PAN_reactive	S1pr3	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Timp1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Hspb1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Cxcl10	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Cd44	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Osmr	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Cp	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Serpina3n	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_PAN_reactive	Aspg	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Vim	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_PAN_reactive	Gfap	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A1	H2-T23	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_A1	Serping1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A1	H2-D1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_A1	Ggta1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A1	Iigp1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_A1	Gbp2	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A1	Fbln5	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A1	Ugt1a	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_A1	Fkbp5	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A1	Psmb8	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A1	Srgn	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_A1	Amigo2	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	Clcf1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	Tgm1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	Ptx3	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	S100a10	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	Sphk1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	Cd109	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	Ptgs2	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_A2	Emp1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	Slc10a6	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_A2	Tm4sf1	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	False
+external	Liddelow_A2	B3gnt5	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Liddelow_A2	Cd14	Liddelow et al. Fig 1a / Extended Data Fig 12a; supplemental tables 1 and 2 checked	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	AANAT	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	False
+external	Panglao_astrocytes	ACSBG1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	ACSL6	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	AGT	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	ALDH1L1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	ALDOC	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	APOE	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	AQP4	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	BYSL	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	CCR7	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	False
+external	Panglao_astrocytes	CD40	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	False
+external	Panglao_astrocytes	CLDN10	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	CMTM5	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	DIO2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	ENTPD2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	ETS1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	FABP7	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	FGFR3	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	FZD2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	GFAP	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	GJA1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	GJB6	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	False
+external	Panglao_astrocytes	GPR37L1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	GSTA4	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	HMG20A	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	HSPA2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	HSPB6	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	HTRA1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	IL23A	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	ITIH3	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	LCAT	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	LCN2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	LUZP2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	NFATC3	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	NKAIN4	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	NTSR2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	PLA2G7	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	PLXNB1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	RLBP1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	S100A8	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	False
+external	Panglao_astrocytes	S100B	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	S1PR1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC16A2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC1A2	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC1A3	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC1A6	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC25A28	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC25A46	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC39A12	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC4A4	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC6A11	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLC7A10	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SLIT1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SNPH	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SOCS3	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SOX9	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SRR	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SYNE1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	SYNM	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	TEAD1	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	TRIL	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	VIM	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_astrocytes	WNT3	PanglaoDB 2020-03-27; mouse-supported Astrocytes	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	AK7	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	AK8	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	ANGPTL2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	AQP1	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	AQP4	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CALML4	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CATIP	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CCDC153	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	CELSR2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CETN4	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CFAP126	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CFAP44	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CFAP54	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CFAP65	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CHEK2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CROCC	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	CRYGN	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	DNAH12	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	DYNLRB2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	EFNB3	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	ENKUR	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	FAM166B	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	FAM183B	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	FAM216B	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	FOXJ1	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	GFAP	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	HDC	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	HSPA2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	IQCG	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	KRT15	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	LRRC23	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	MEIG1	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	MYB	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	MYO16	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	NME9	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	ODF3B	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	PCP4L1	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	PIFO	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	PLTP	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	PLXNB2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	PVALB	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	RABL2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	RARRES2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	RFX2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	RIIAD1	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	RSPH1	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	S100B	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	SIX3	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	SPEF2	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	SSPO	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	STOML3	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	TEKT1	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	TEKT4	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	TM4SF1	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	TMEM107	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	TMEM212	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	TRIM71	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	False
+external	Panglao_ependymal	USP18	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True
+external	Panglao_ependymal	ZMYND10	PanglaoDB 2020-03-27; mouse-supported Ependymal cells	2026-11-16	frozen before sensitivity run	True

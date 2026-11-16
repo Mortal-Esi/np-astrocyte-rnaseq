@@ -1,0 +1,38 @@
+class	project_symbol	panel_label	test_symbol	in_rat_primer_table_literal	in_mouse_primer_table_literal	represented_in_rat_analysis	comparison
+PAN_reactive	Lcn2	Lcn2	Lcn2	True	True	True	same symbol
+PAN_reactive	Steap4	Steap4	Steap4	True	True	False	same symbol
+PAN_reactive	S1pr3	S1pr3	S1pr3	True	True	True	same symbol
+PAN_reactive	Timp1	Timp1	Timp1	True	True	True	same symbol
+PAN_reactive	Hspb1	Hspb1	Hspb1	False	False	True	panel Hspb1; both primer tables print Hsbp1; primer identity unresolved; class-based test follows panel
+PAN_reactive	Cxcl10	Cxcl10	Cxcl10	True	True	True	same symbol
+PAN_reactive	Cd44	Cd44	Cd44	True	True	True	same symbol
+PAN_reactive	Osmr	Osmr	Osmr	True	True	True	same symbol
+PAN_reactive	Cp	Cp	Cp	True	True	True	same symbol
+PAN_reactive	Serpina3n	Serpina3n	Serpina3n	True	True	False	same symbol
+PAN_reactive	Aspg	Aspg	Aspg	True	True	True	same symbol
+PAN_reactive	Vim	Vim	Vim	True	True	True	same symbol
+PAN_reactive	Gfap	Gfap	Gfap	True	True	True	same symbol
+A1	H2-T23	H2.T23	H2-T23	True	True	False	panel punctuation; primer tables use hyphens
+A1	Serping1	Serping1	Serping1	True	True	True	same symbol
+A1	H2-D1	H2.D1	H2-D1	True	True	False	panel punctuation; primer tables use hyphens
+A1	Ggta1	Ggta1	Ggta1	True	True	True	same symbol
+A1	Iigp1	Iigp1	Iigp1	True	True	False	same symbol
+A1	Gbp2	Gbp2	Gbp2	True	True	True	same symbol
+A1	Fbln5	Fbln5	Fbln5	True	True	True	same symbol
+A1	Ugt1a1	Ugt1a	Ugt1a	True	True	False	panel and primer tables use family label; project chose Ugt1a1; no paralog substitution in external GSEA
+A1	Fkbp5	Fkbp5	Fkbp5	True	True	True	same symbol
+A1	Psmb8	Psmb8	Psmb8	True	True	True	same symbol
+A1	Srgn	Srgn	Srgn	True	True	False	same symbol
+A1	Amigo2	Amigo2	Amigo2	True	True	True	same symbol
+A2	Clcf1	Clcf1	Clcf1	True	True	True	same symbol
+A2	Tgm1	Tgm1	Tgm1	True	True	True	same symbol
+A2	Ptx3	Ptx3	Ptx3	True	True	True	same symbol
+A2	S100a10	S100a10	S100a10	True	True	True	same symbol
+A2	Sphk1	Sphk1	Sphk1	True	True	True	same symbol
+A2	Cd109	Cd109	Cd109	True	True	True	same symbol
+A2	Ptgs2	Ptgs2	Ptgs2	True	True	False	same symbol
+A2	Emp1	Emp1	Emp1	True	True	True	same symbol
+A2	Slc10a6	Slc10a6	Slc10a6	True	True	False	same symbol
+A2	Tm4sf1	Tm4sf1	Tm4sf1	True	True	False	same symbol
+A2	B3gnt5	B3gnt5	B3gnt5	True	True	True	same symbol
+A2	Cd14	Cd14	Cd14	True	True	True	same symbol
