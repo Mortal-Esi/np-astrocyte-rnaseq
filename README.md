@@ -4,7 +4,7 @@
 
 **Major revision under review.** Step 22 conditions on the signed high-dose 500 nm coefficient. Of the three selected sets, complement showed an excess above this matched background (+0.457 log2 units, BH-adjusted P = 0.00015). Ciliary and homeostatic markers declined more strongly in the 500 nm series, with little evidence of additional set-specific excess. These comparisons are exploratory and use estimated effects from the same cultures. [Matched results](results/amplitude/set_excess_over_amplitude.tsv).
 
-The DOI above identifies the preceding v1.2.0 archive. The review bundle additionally includes the tximport input and the rebuilt DESeq2 object under results/tximport and results/deseq2. With the recorded R dependencies, rerun the main fit with `Rscript --vanilla scripts/08_deseq2.R`, or rerun the review test directly with `Rscript --vanilla scripts/22_amplitude_matched_sets.R`. Inputs in this bundle allow a processed-data restart without new raw downloads.
+The DOI above identifies the preceding v1.2.0 archive. The review bundle additionally includes the tximport input and the rebuilt DESeq2 object under results/tximport and results/deseq2. With the recorded R dependencies, rerun the main fit with `Rscript --vanilla scripts/08_deseq2.R`, or rerun the review test directly with `Rscript --vanilla scripts/22_amplitude_matched_sets.R`. Inputs in this bundle allow a processed-data restart without new raw downloads. The [clean-run audit](results/reproducibility/README.md) records the six gene counts, all block permutations, matched-background results and figure checks.
 
 
 **Mohammad Javad Eslami** · independent reanalysis of public data (GEO [GSE256038](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256038) / BioProject PRJNA1077930)

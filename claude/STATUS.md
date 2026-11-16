@@ -16,3 +16,5 @@ panglao.tsv.gz SHA256 6779952ad40aa5a124de7bd0e18975c6630bd6006d6b3ef210a916caaa
 supplement.pdf SHA256 e6af1d7b09205b60bb98b38daf870646a87c26c7886700b2bec833d531016d93
 
 cassette.jpg SHA256 efd27273a0db08176f45e57f1ab971c236619cc130d08f2de10f87c584f523c3
+
+After observing the external GSEA, before testing external matched excess: apply the same conditional rank-neighbour rule as step 22 to the two PanglaoDB sets. Map case-insensitively, break target-symbol duplicates by largest absolute interaction Wald statistic then Ensembl ID, and retain the full gene-level sampling background. BH across these two secondary tests. This is an additional exploratory check.

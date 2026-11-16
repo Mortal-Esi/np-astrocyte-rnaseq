@@ -1,6 +1,7 @@
 """Check key manuscript counts from the repository's published gene and pathway tables."""
 import csv
 import gzip
+from math import isclose
 from pathlib import Path
 root = Path(__file__).resolve().parents[1] / "results"
 
@@ -29,3 +30,17 @@ for name, expected in [("ependymal_cilia", [0,5,6]), ("complement_activation", [
         assert len({r["fit"] for r in fits}) == 6
         assert sum(significant(r["FDR_six_tests"]) for r in fits) == count
 print("Verified gene-level counts and all six dose-by-pathway summaries.")
+
+matched = {r["set"]: r for r in read("amplitude/set_excess_over_amplitude.tsv")}
+expected = {
+    "complement_activation": (18, 0.45711518, 0.0001499925),
+    "ependymal_cilia": (7, 0.00582502, 0.47977601),
+    "homeostatic_astro": (10, 0.10589813, 0.37693115),
+}
+assert matched.keys() == expected.keys()
+for name, (size, excess, q) in expected.items():
+    row = matched[name]
+    assert int(row["n_represented"]) == size
+    assert isclose(float(row["excess"]), excess, abs_tol=5e-9)
+    assert isclose(float(row["BH_three_sets"]), q, abs_tol=5e-9)
+print("Verified the represented sizes, excesses and adjusted P values of all three matched-background tests.")

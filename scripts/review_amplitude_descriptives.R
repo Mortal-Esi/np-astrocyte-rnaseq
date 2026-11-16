@@ -1,6 +1,10 @@
-# Run from the project root. Archived tables deliberately reproduce the shrunken estimates used in review.
+# Run from the project root. Prefer fresh step-08 tables. Release archives may store them compressed.
 sz <- c("50","500")
-a <- lapply(sz,function(s) read.delim(file.path("results/deseq2",sprintf("%sD_vs_%sA.tsv.gz",s,s))))
+a <- lapply(sz, function(s) {
+  path <- file.path("results/deseq2", sprintf("%sD_vs_%sA.tsv", s, s))
+  if (!file.exists(path)) path <- paste0(path, ".gz")
+  read.delim(path)
+})
 d <- merge(a[[1]],a[[2]],by="gene_id",suffixes=c("_50","_500"))
 x <- d$log2FC_shrunk_500
 y <- d$log2FC_shrunk_50
