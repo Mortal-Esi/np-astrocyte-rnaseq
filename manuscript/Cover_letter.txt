@@ -1,0 +1,20 @@
+19 November 2026
+
+Dear Editors,
+
+I submit the manuscript “Complement transcript responses to two polystyrene particle sizes in rat astrocyte cultures after accounting for response amplitude” for consideration as a Research Article in BMC Genomic Data.
+
+This study reanalyses the public RNA-seq dataset GSE256038 to examine whether rat astrocyte cultures respond differently to 50 nm and 500 nm polystyrene particles at equal nominal mass concentrations. It extends the source study through direct between-series response contrasts, block-omission and group-only sensitivity analyses, and a competitive comparison that matches genes on their estimated response in the 500 nm series.
+
+At 100 µg/mL, complement transcripts showed an excess between-series difference of 0.457 log₂ units after matching, with a Benjamini–Hochberg adjusted empirical P value of 0.00015. The original ciliary and homeostatic marker sets showed less evidence of excess beyond this background. The manuscript reports the inferred status of the sample blocks, post hoc marker selection, and dependence of the intermediate-dose ciliary result on one block. Changes in cell-state markers are interpreted cautiously because bulk RNA-seq cannot resolve the cellular origin of the signal.
+
+The study fits the journal’s interest in new analyses of genomic data and transparent data sharing. The accompanying release provides analysis code, processed model inputs, gene-level results, figures and a reproducibility audit. A fresh restart from the tximport object reproduced all six principal gene counts and the manuscript figures. This audit establishes computational reproducibility on the same platform. Biological interpretation remains exploratory within a single dataset.
+
+I am the sole author and have reviewed and approved the manuscript for submission. The work has not been published in a journal and is not under consideration by another journal. An earlier version of the code, results and manuscript was publicly archived in Zenodo (https://doi.org/10.5281/zenodo.24197910). The revised materials are available in the GitHub v1.3.0 release (https://github.com/Mortal-Esi/np-astrocyte-rnaseq/releases/tag/v1.3.0). These public versions are disclosed for editorial assessment.
+
+I funded the study personally and declare no competing interests. The work uses publicly deposited sequencing data, and the source investigators are credited throughout. Computational assistance from OpenAI Codex and Claude is described in the Methods. I take responsibility for the manuscript and its conclusions.
+
+Sincerely,
+Mohammad Javad Eslami
+Independent researcher, Tehran, Iran
+mohamadjavadeslami10@gmail.com

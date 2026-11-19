@@ -64,11 +64,11 @@ For the targeted analysis, preranked gene-set enrichment analysis (GSEA) used cl
 
 ### Sensitivity to externally defined marker lists
 
-Before rerunning enrichment, we timestamped the marker-selection rules and locked memberships in version control. We transcribed PAN/A1/A2 from the labelled panels of Liddelow et al. (Fig. 1a and Extended Data Fig. 12a) and checked each label against rat and mouse primer tables in their supplement [12]. The published panels use Ugt1a, whereas the original analysis used Ugt1a1. The panels label Hspb1, while the primer tables print Hsbp1; the panel label was used and primer specificity was not inferred. We retained the submitted punctuation normalization for the two H2 labels. The marker audit records unmatched genes. For a separate sensitivity analysis, all mouse-supported astrocyte and ependymal markers were taken from the 27 March 2020 PanglaoDB release [19]. We used case-insensitive symbol matching to the rat ranking without imputing missing orthologues. These are broader cell-identity proxies for the original homeostatic and motile-cilia sets. Full blocked-model GSEA at high dose used the same ranking and tie-break rules and BH across five external lists per contrast. A further exploratory test applied signed-effect matching to the two external identity sets, adjusting over two tests. The same samples were used throughout.
+Before rerunning enrichment, we timestamped the marker-selection rules and locked memberships in version control. We transcribed PAN/A1/A2 from the labelled panels of Liddelow et al. (Fig. 1a and Extended Data Fig. 12a) and checked each label against rat and mouse primer tables in their supplement [12]. The published panels use Ugt1a, whereas the original analysis used Ugt1a1. The panels label Hspb1, while the primer tables print Hsbp1; the panel label was used and primer specificity was not inferred. We retained the submitted punctuation normalization for the two H2 labels. The marker audit records unmatched genes (Additional file 2). For a separate sensitivity analysis, all mouse-supported astrocyte and ependymal markers were taken from the 27 March 2020 PanglaoDB release [19]. We used case-insensitive symbol matching to the rat ranking without imputing missing orthologues. These are broader cell-identity proxies for the original homeostatic and motile-cilia sets. Full blocked-model GSEA at high dose used the same ranking and tie-break rules and BH across five external lists per contrast. A further exploratory test applied signed-effect matching to the two external identity sets, adjusting over two tests. The same samples were used throughout.
 
 ### Computational assistance
 
-OpenAI Codex assisted with code execution, verification and manuscript preparation. The supplied external review used Claude to audit archived tables and propose analyses and textual revisions. The revised computations were run locally using the original tximport data and the archived results were checked separately. Author review and approval are required before submission.
+OpenAI Codex assisted with code execution, verification and manuscript preparation. The supplied external review used Claude to audit archived tables and propose analyses and textual revisions. The revised computations were run locally using the original tximport data and the archived results were checked separately. The author reviewed and approved the manuscript and takes responsibility for its content.
 
 ## Results
 
@@ -110,7 +110,7 @@ The average high-dose complement contrast was positive in each individual block 
 
 Group means of cell-type markers provide descriptive evidence relevant to culture state. Relative to its own control, the 500 nm high-dose group showed a 3.3-fold increase in the progenitor marker *Nes* (4,072 to 13,240 normalized counts) and a decrease in the mature astrocyte marker *Aqp4* (35,518 to 13,003). The corresponding changes in the 50 nm high-dose group were smaller (*Nes* 3,335 to 5,848; *Aqp4* 35,650 to 28,951), and *Gfap* rose more in the 50 nm series (+1.04 log₂ units) than in the 500 nm series (+0.18). These are descriptive group means from bulk libraries and were not tested formally (Additional file 1).
 
-**Table 1. Targeted enrichment of the direct 50 nm minus 500 nm response contrast at 100 µg/mL.**
+**Table 1. Targeted high-dose enrichment of the between-series response contrast.**
 
 | Gene set | Represented members | NES | Adjusted P | Fits meeting criterion |
 |---|---:|---:|---:|---:|
@@ -163,13 +163,13 @@ BH, Benjamini–Hochberg; GEO, Gene Expression Omnibus; GSEA, gene set enrichmen
 
 **Consent for publication.** Not applicable.
 
-**Availability of data and materials.** Raw reads and original differential-expression tables are available under GSE256038 [2]. The preceding analysis (v1.2.0) is archived in Zenodo [15]. Supplementary revision files contain the updated analysis code, results, marker table and processed R objects used for the present revision.
+**Availability of data and materials.** Raw reads and original differential-expression tables are available under GSE256038 [2]. The preceding analysis (v1.2.0) is archived in Zenodo [15]. The updated analysis code, results, figures and processed R objects are available in the v1.3.0 GitHub release [20]. The release includes the tximport input, rebuilt DESeq2 object and a processed-data reproducibility audit. Additional files 1 and 2 provide marker means, frozen marker definitions and source audits, and external-marker sensitivity results.
 
 **Competing interests.** The author declares no competing interests.
 
 **Funding.** The author funded the study with personal resources.
 
-**Authors' contributions.** MJE designed the reanalysis, analysed and interpreted the data, and prepared the manuscript.
+**Authors' contributions.** MJE designed the reanalysis, analysed and interpreted the data, prepared the manuscript, and approved the final version.
 
 **Acknowledgements.** This work used the sequencing libraries and gene-level results deposited by the original investigators [1,2].
 
@@ -213,6 +213,8 @@ BH, Benjamini–Hochberg; GEO, Gene Expression Omnibus; GSEA, gene set enrichmen
 
 19. Franzén O, Gan LM, Björkegren JLM. PanglaoDB: a web server for exploration of mouse and human single-cell RNA sequencing data. Database. 2019;2019:baz046. https://doi.org/10.1093/database/baz046
 
+20. Eslami MJ. Polystyrene astrocyte RNA-seq reanalysis. Version 1.3.0. GitHub. 2026. https://github.com/Mortal-Esi/np-astrocyte-rnaseq/releases/tag/v1.3.0. Accessed 19 November 2026.
+
 ## Figure legends
 
 **Figure 1. Within-series transcriptional responses at 100 µg/mL.** Each point represents a gene. The horizontal axis gives the apeglm-shrunken log₂ fold change relative to the series-specific control; the vertical axis gives −log₁₀ adjusted P (capped at 40). Grey points are genes not meeting the discovery criteria, orange points are discoveries that did not pass all stability checks, and red points are discoveries that also retained significance and direction in every block-omission fit and agreed in direction within every observed block. Dashed vertical lines mark the 1.5-fold effect-size criterion.
@@ -229,7 +231,7 @@ BH, Benjamini–Hochberg; GEO, Gene Expression Omnibus; GSEA, gene set enrichmen
 
 ## Additional files
 
-**Additional file 1.** Group mean normalized counts for astrocyte, oligodendrocyte-lineage, neuronal, progenitor and proliferation markers across the eight exposure groups (source: `results/explore/marker_group_means.tsv`).
+**Additional file 1.** Additional_file_1.csv. Group mean normalized marker counts. Comma-separated table of astrocyte, oligodendrocyte-lineage, neuronal, progenitor and proliferation marker means across the eight exposure groups.
 
 
-**Additional file 2.** Frozen panel definitions and member-level source audit (data/marker_sources). External-marker enrichment and matched-background results are archived in results/marker_sensitivity and results/amplitude.
+**Additional file 2.** Additional_file_2.zip. Marker definitions and sensitivity analyses. ZIP archive containing tab-separated marker memberships, member-level source audit, source documentation, external-marker enrichment and matched-background results.
