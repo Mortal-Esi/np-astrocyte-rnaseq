@@ -163,7 +163,7 @@ BH, Benjamini–Hochberg; GEO, Gene Expression Omnibus; GSEA, gene set enrichmen
 
 **Consent for publication.** Not applicable.
 
-**Availability of data and materials.** Raw reads and original differential-expression tables are available under GSE256038 [2]. The preceding analysis (v1.2.0) is archived in Zenodo [15]. The updated analysis code, results, figures and processed R objects are available in the v1.3.0 GitHub release [20]. The release includes the tximport input, rebuilt DESeq2 object and a processed-data reproducibility audit. Additional files 1 and 2 provide marker means, frozen marker definitions and source audits, and external-marker sensitivity results.
+**Availability of data and materials.** Raw reads and original differential-expression tables are available under GSE256038 [2]. The preceding analysis (v1.2.0) is archived in Zenodo [15]. The updated analysis code, results, figures and processed R objects for v1.3.0 are archived in Zenodo [20]. The release includes the tximport input, rebuilt DESeq2 object and a processed-data reproducibility audit. Additional files 1 and 2 provide marker means, frozen marker definitions and source audits, and external-marker sensitivity results.
 
 **Competing interests.** The author declares no competing interests.
 
@@ -213,7 +213,7 @@ BH, Benjamini–Hochberg; GEO, Gene Expression Omnibus; GSEA, gene set enrichmen
 
 19. Franzén O, Gan LM, Björkegren JLM. PanglaoDB: a web server for exploration of mouse and human single-cell RNA sequencing data. Database. 2019;2019:baz046. https://doi.org/10.1093/database/baz046
 
-20. Eslami MJ. Polystyrene astrocyte RNA-seq reanalysis. Version 1.3.0. GitHub. 2026. https://github.com/Mortal-Esi/np-astrocyte-rnaseq/releases/tag/v1.3.0. Accessed 19 November 2026.
+20. Eslami MJ. Complement transcript responses to two polystyrene particle sizes in rat astrocyte cultures after accounting for response amplitude. Zenodo. 2026. https://doi.org/10.5281/zenodo.24361377
 
 ## Figure legends
 
