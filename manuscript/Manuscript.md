@@ -171,7 +171,7 @@ BH, Benjamini–Hochberg. GEO, Gene Expression Omnibus. GO, Gene Ontology. GSEA,
 
 **Consent for publication.** Not applicable.
 
-**Availability of data and materials.** GEO accession GSE256038 provides the raw reads through the Sequence Read Archive and the investigators’ differential-expression tables [2]. Zenodo archives the preceding analysis (v1.2.0) [20] and the v1.3.0 code, gene-level results, figures and processed R objects used here [21]. The latter includes the tximport input, rebuilt DESeq2 object and processed-data reproducibility audit. Additional file 1 contains group mean marker counts. Additional file 2 contains gene-set definitions, source audits, complement gene estimates and external-marker sensitivity results.
+**Availability of data and materials.** GEO accession GSE256038 provides the raw reads through the Sequence Read Archive and the investigators’ differential-expression tables [2]. Earlier analysis versions are archived in Zenodo [20,21]. The v1.3.1 archive contains the analysis code, processed gene-level results, figures, tximport input, rebuilt DESeq2 object and reproducibility audit used for this manuscript [22]. Additional file 1 contains group mean marker counts. Additional file 2 contains gene-set definitions, source audits, complement gene estimates and external-marker sensitivity results.
 
 **Competing interests.** The author declares no competing interests.
 
@@ -230,6 +230,8 @@ BH, Benjamini–Hochberg. GEO, Gene Expression Omnibus. GO, Gene Ontology. GSEA,
 20. Eslami MJ. RNA-seq reanalysis of ciliary and complement responses to polystyrene exposure in rat astrocyte cultures. Version 1.2.0. Zenodo. 2026. https://doi.org/10.5281/zenodo.24197910
 
 21. Eslami MJ. Complement transcript responses to two polystyrene particle sizes in rat astrocyte cultures after accounting for response amplitude. Zenodo. 2026. https://doi.org/10.5281/zenodo.24361377
+
+22. Eslami MJ. Complement gene expression in rat astrocyte cultures exposed to 50 or 500 nm polystyrene particles at equal nominal mass concentrations. Version 1.3.1. Zenodo. 2026. https://doi.org/10.5281/zenodo.24390580
 
 ## Figure legends
 

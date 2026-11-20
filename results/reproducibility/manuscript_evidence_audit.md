@@ -1,6 +1,6 @@
 # Manuscript evidence audit, 20 November 2026
 
-The 21 references in the manuscript were checked by identifier and title. The checks below distinguish the existence of a work from its relevance to the claim. Software publications describe the methods; the versions actually run are documented in the project environment and session logs.
+The 21 references in the audited manuscript were checked by identifier and title. Reference 22 was added after publication of the v1.3.1 archive. The checks below distinguish the existence of a work from its relevance to the claim. Software publications describe the methods; the versions actually run are documented in the project environment and session logs.
 
 | Reference | Record checked | Use in the manuscript |
 |---|---|---|
@@ -25,6 +25,7 @@ The 21 references in the manuscript were checked by identifier and title. The ch
 | 19 | [Crossref](https://doi.org/10.1186/1743-8977-7-36) | Particle transport and delivered dose in culture |
 | 20 | [DataCite and archived Zenodo metadata](https://doi.org/10.5281/zenodo.24197910) | Earlier project deposit |
 | 21 | [DataCite and archived Zenodo metadata](https://doi.org/10.5281/zenodo.24361377) | Processed data, code and archived analysis |
+| 22 | [Published Zenodo record](https://doi.org/10.5281/zenodo.24390580) | Current archive. The deposited ZIP matches the local v1.3.1 bundle in size and MD5 checksum. |
 
 ## Corrections and checks
 
