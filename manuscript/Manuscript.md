@@ -36,9 +36,9 @@ Each GEO accession was matched to its sequencing run and BioSample record. Withi
 
 ### Read processing and comparison with the published results
 
-The paired FASTQ files were checked against European Nucleotide Archive MD5 checksums. [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) and fastp [6] assessed read quality, and MultiQC [7] combined the reports. Salmon 2.8.0 quantified the original reads using automatic library-type detection and correction for sequence and GC bias [8]. The index comprised Ensembl release 116 rat cDNA and noncoding RNA sequences (GRCr8, k = 31) without genomic decoys. Transcript identifiers were matched to gene annotations from the same release after stripping version suffixes. tximport 1.40.0 supplied gene-level counts and sample-specific length offsets to DESeq2 1.52.0 [9,10]. Genes with at least ten counts in at least four libraries entered the analysis.
+The paired FASTQ files were checked against European Nucleotide Archive MD5 checksums. FastQC [6] and fastp [7] assessed read quality, and MultiQC [8] combined the reports. Salmon 2.8.0 quantified the original reads using automatic library-type detection and correction for sequence and GC bias [9]. The index comprised Ensembl release 116 rat cDNA and noncoding RNA sequences (GRCr8, k = 31) without genomic decoys. Transcript identifiers were matched to gene annotations from the same release after stripping version suffixes. tximport 1.40.0 supplied gene-level counts and sample-specific length offsets to DESeq2 1.52.0 [10,11]. Genes with at least ten counts in at least four libraries entered the analysis.
 
-The primary negative-binomial model included an eight-level exposure group and a four-level suffix block as additive fixed effects. A second model used exposure group alone. In the reanalysis, inclusion in a within-series high-dose discovery list required a Benjamini–Hochberg (BH) adjusted Wald P value below 0.05 and an absolute apeglm-shrunken log₂ fold change of at least log₂(1.5) [11,12]. Published genes were matched by Ensembl identifier. Where an identifier was absent, a unique symbol in both annotations was used, excluding conflicts with direct matches. Published discoveries were defined from the deposited adjusted P values (< 0.05) and signed fold changes (absolute value ≥ 1.5). Recovery was the fraction of matched published discoveries that also met the reanalysis criteria.
+The primary negative-binomial model included an eight-level exposure group and a four-level suffix block as additive fixed effects. A second model used exposure group alone. In the reanalysis, inclusion in a within-series high-dose discovery list required a Benjamini–Hochberg (BH) adjusted Wald P value below 0.05 and an absolute apeglm-shrunken log₂ fold change of at least log₂(1.5) [12,13]. Published genes were matched by Ensembl identifier. Where an identifier was absent, a unique symbol in both annotations was used, excluding conflicts with direct matches. Published discoveries were defined from the deposited adjusted P values (< 0.05) and signed fold changes (absolute value ≥ 1.5). Recovery was the fraction of matched published discoveries that also met the reanalysis criteria.
 
 To assess the observed arrangement of suffixes, I shuffled the four labels independently within each group, retaining the number of model parameters. I refitted DESeq2 for 39 shuffles (seed 20261113) and counted genes at BH-adjusted P < 0.05 for each high-dose exposure versus its own control. The observed and shuffled counts used the same DESeq2 contrast extraction.
 
@@ -50,9 +50,9 @@ Each leave-one-block-out fit retained 24 libraries and the original gene univers
 
 ### Gene sets and their provenance
 
-An initial screen examined Gene Ontology (GO) biological processes, KEGG pathways and eight marker lists. The pan-reactive, A1 and A2 categories came from work in mice [13]. The categories were of interest before the analysis, but I reconstructed the original gene lists from memory after examining the high-dose data. I selected the homeostatic astrocyte and ciliary/ependymal markers by hand after observing the change in *Aqp4* and enrichment for cilium movement and axoneme genes. *Foxj1* and *Dnah9* contributed to the signal that motivated the ciliary list. I also assembled the proliferation, oligodendrocyte-lineage and neuronal lists by hand. The exploratory eight-list analysis ranked mapped genes with evaluable adjusted P values using statistics reconstructed from the exported estimates and standard errors.
+An initial screen examined Gene Ontology (GO) biological processes, KEGG pathways and eight marker lists. The pan-reactive, A1 and A2 categories came from work in mice [14]. The categories were of interest before the analysis, but I reconstructed the original gene lists from memory after examining the high-dose data. I selected the homeostatic astrocyte and ciliary/ependymal markers by hand after observing the change in *Aqp4* and enrichment for cilium movement and axoneme genes. *Foxj1* and *Dnah9* contributed to the signal that motivated the ciliary list. I also assembled the proliferation, oligodendrocyte-lineage and neuronal lists by hand. The exploratory eight-list analysis ranked mapped genes with evaluable adjusted P values using statistics reconstructed from the exported estimates and standard errors.
 
-Three sets were selected for follow-up: the ciliary and homeostatic lists and the GO term *complement activation* ([GO:0006956](https://amigo.geneontology.org/amigo/term/GO:0006956)). Rat complement genes were obtained from org.Rn.eg.db, including annotations to descendant terms. For preranked gene set enrichment analysis (GSEA) in clusterProfiler, genes were ranked by finite, full-precision DESeq2 Wald statistics [14,15]. Where identifiers shared a gene symbol, the one with the largest absolute statistic was retained, with identifier order breaking ties. Eligible sets contained 4–500 represented genes. The normalized enrichment score (NES) describes where members lie in the ranking. In the direct contrast a positive score denotes enrichment among genes with a more positive response to 50 nm particles.
+Three sets were selected for follow-up: the ciliary and homeostatic lists and the GO term *complement activation* (GO:0006956). Rat complement genes were obtained from org.Rn.eg.db, including annotations to descendant terms. For preranked gene set enrichment analysis (GSEA) in clusterProfiler, genes were ranked by finite, full-precision DESeq2 Wald statistics [15,16]. Where identifiers shared a gene symbol, the one with the largest absolute statistic was retained, with identifier order breaking ties. Eligible sets contained 4–500 represented genes. The normalized enrichment score (NES) describes where members lie in the ranking. In the direct contrast a positive score denotes enrichment among genes with a more positive response to 50 nm particles.
 
 The high-dose follow-up used BH adjustment across three sets per fit. The across-dose analysis tested ciliary and complement genes at all three nonzero doses, with BH adjustment across six tests per fit. For tests common to both analyses, the rankings, NES and unadjusted P values were identical. I examined the leading edge (genes contributing to the enrichment peak) and repeated high-dose GSEA after omitting each ciliary or complement member in turn. The 25 resulting P values were adjusted together. Gene omissions and block omissions assess sensitivity using overlapping sets or samples.
 
@@ -62,7 +62,7 @@ At 100 µg/mL I summarized the response in each series by its median absolute lo
 
 ### Externally defined marker lists
 
-Before repeating the analyses with external lists, I recorded the selection rules, date and membership in version control. I transcribed the mouse pan-reactive, A1 and A2 panels in Fig. 1a and Extended Data Fig. 12a of Liddelow et al. and compared the labels with the rat and mouse primer tables [13]. The panels list *Ugt1a*, where the reconstructed list had *Ugt1a1*. I followed the panel label *Hspb1* where the primer tables print *Hsbp1*. Additional file 2 records symbol normalization and unmatched genes. I also took all mouse-supported astrocyte and ependymal markers from the [27 March 2020 marker release](https://panglaodb.se/markers/PanglaoDB_markers_27_Mar_2020.tsv.gz) of PanglaoDB [16]. Additional file 2 documents the archived copy used. Symbols were matched case-insensitively to the rat ranking without imputing missing orthologues. These lists represent broader cellular identities than the hand-selected panels. High-dose GSEA used the full blocked model and BH adjustment across the five external lists per contrast. The two PanglaoDB lists were also evaluated against matched backgrounds from the full blocked model, with BH adjustment over these two tests.
+Before repeating the analyses with external lists, I recorded the selection rules, date and membership in version control. I transcribed the mouse pan-reactive, A1 and A2 panels in Fig. 1a and Extended Data Fig. 12a of Liddelow et al. and compared the labels with the rat and mouse primer tables [14]. The panels list *Ugt1a*, where the reconstructed list had *Ugt1a1*. I followed the panel label *Hspb1* where the primer tables print *Hsbp1*. Additional file 2 records symbol normalization and unmatched genes. I also took all mouse-supported astrocyte and ependymal markers from the 27 March 2020 marker release of PanglaoDB [17]. Additional file 2 documents the archived copy used. Symbols were matched case-insensitively to the rat ranking without imputing missing orthologues. These lists represent broader cellular identities than the hand-selected panels. High-dose GSEA used the full blocked model and BH adjustment across the five external lists per contrast. The two PanglaoDB lists were also evaluated against matched backgrounds from the full blocked model, with BH adjustment over these two tests.
 
 ### Computational assistance and reproducibility
 
@@ -149,13 +149,13 @@ Marcellus and colleagues found an inflammatory transcriptional response to both 
 
 Ciliary genes consistently ranked near the positive end of the between-series contrast, including after omission of individual blocks or genes. Their larger decline in the 500 nm cultures was typical, however, of other genes with comparable 500 nm responses. The hand-selected homeostatic list behaved similarly. The broader PanglaoDB astrocyte list exceeded its matched background. The size and membership of the lists both differ, so these results alone cannot assign the difference to a particular biological programme.
 
-The rise in *Nes* alongside the fall in *Aqp4*, *Gja1* and *Glul* in the 500 nm cultures is consistent with a shift in cell state or in the relative abundance of cell types. Either could also contribute to the decline in *Foxj1* and other ciliary transcripts [5]. Bulk sequencing cannot distinguish those explanations. The source study’s separate seven-day MTT assay showed lower metabolic activity at 100 µg/mL. The authors described the reduction at 500 nm as a trend [1]. Those measurements cannot establish cell counts or viability in the sequenced samples. Similarly, enrichment of historical pan-reactive and A2 signatures describes expression patterns in these cultures. Functional designations for reactive astrocytes require additional evidence [13,17].
+The rise in *Nes* alongside the fall in *Aqp4*, *Gja1* and *Glul* in the 500 nm cultures is consistent with a shift in cell state or in the relative abundance of cell types. Either could also contribute to the decline in *Foxj1* and other ciliary transcripts [5]. Bulk sequencing cannot distinguish those explanations. The source study’s separate seven-day MTT assay showed lower metabolic activity at 100 µg/mL. The authors described the reduction at 500 nm as a trend [1]. Those measurements cannot establish cell counts or viability in the sequenced samples. Similarly, enrichment of historical pan-reactive and A2 signatures describes expression patterns in these cultures. Functional designations for reactive astrocytes require additional evidence [14,18].
 
-The high-dose data guided the choice of all three follow-up sets and the membership of the two hand-selected lists. Some ciliary genes helped generate the GO result that prompted their selection. BH adjustment covers the tests reported in each family and cannot account for that selection. The 500 nm estimate also enters both the matching procedure and the direct contrast. Resampling the fitted gene estimates does not propagate that uncertainty. Independent draws also omit correlations among pathway members, which can affect competitive gene-set tests [18]. The one-sided empirical P values therefore describe this conditional comparison. External marker definitions reduce dependence on hand selection, but all comparisons use the same cultures.
+The high-dose data guided the choice of all three follow-up sets and the membership of the two hand-selected lists. Some ciliary genes helped generate the GO result that prompted their selection. BH adjustment covers the tests reported in each family and cannot account for that selection. The 500 nm estimate also enters both the matching procedure and the direct contrast. Resampling the fitted gene estimates does not propagate that uncertainty. Independent draws also omit correlations among pathway members, which can affect competitive gene-set tests [19]. The one-sided empirical P values therefore describe this conditional comparison. External marker definitions reduce dependence on hand selection, but all comparisons use the same cultures.
 
 The sample records do not identify what the recurring suffix represents. Including it greatly increased the number of gene-level discoveries, and omission fits reuse most of the same libraries. At 10 µg/mL, block 3 contains sample 500C-03, whose first principal component score (22.1) lay within the 500 nm high-dose range (17.6–35.5). Its expression profile more closely resembled the 500 nm series. In seven of the eight high-dose samples the larger regression coefficient corresponded to the recorded particle series. This check could not verify the concentration assigned to 500C-03. I retained the submitted label. Omitting the whole block reveals the sensitivity of the intermediate-dose result without isolating the influence of this library. The dose-specific contrasts also do not establish a monotonic trend or an onset threshold.
 
-Equal nominal mass also entails different particle numbers. For ideal spheres of equal density, the 50 nm preparation contains about 1,000 times as many particles and ten times the total geometric surface area as the 500 nm preparation at the same mass. Sedimentation and diffusion can further alter how much material reaches the cells [19]. Particle diameter and these differences in exposure cannot be separated in this experiment.
+Equal nominal mass also entails different particle numbers. For ideal spheres of equal density, the 50 nm preparation contains about 1,000 times as many particles and ten times the total geometric surface area as the 500 nm preparation at the same mass. Sedimentation and diffusion can further alter how much material reaches the cells [20]. Particle diameter and these differences in exposure cannot be separated in this experiment.
 
 ## Conclusions
 
@@ -167,13 +167,13 @@ BH, Benjamini–Hochberg. GEO, Gene Expression Omnibus. GO, Gene Ontology. GSEA,
 
 ## Declarations
 
-**Ethics approval and consent to participate.** This secondary analysis used public rat RNA-seq data. It involved no additional animals, specimens or human participants. The source study describes the original experimental procedures [1].
+**Ethics approval and consent to participate.** This secondary analysis used public rat RNA-seq data. It involved no additional animals, specimens or human participants. Ethics approval and consent to participate are not applicable to this secondary analysis. The original experimental procedures are described in the source study [1].
 
 **Consent for publication.** Not applicable.
 
-**Availability of data and materials.** GEO accession GSE256038 provides the raw reads through the Sequence Read Archive and the investigators’ differential-expression tables [2]. Earlier analysis versions are archived in Zenodo [20,21]. The v1.3.1 archive contains the analysis code, processed gene-level results, figures, tximport input, rebuilt DESeq2 object and reproducibility audit used for this manuscript [22]. Additional file 1 contains group mean marker counts. Additional file 2 contains gene-set definitions, source audits, complement gene estimates and external-marker sensitivity results.
+**Availability of data and materials.** GEO accession GSE256038 provides the raw reads through the Sequence Read Archive and the investigators’ differential-expression tables [2]. Earlier analysis versions are archived in Zenodo [21,22]. The analysis files are available in the Zenodo repository (https://doi.org/10.5281/zenodo.24390580) [23]. The v1.3.1 archive contains the analysis code, processed gene-level results, figures, tximport input, rebuilt DESeq2 object and reproducibility audit used for this manuscript. Supporting data are also included in the article and its additional files. Additional file 1 contains group mean marker counts. Additional file 2 contains gene-set definitions, source audits, complement gene estimates and external-marker sensitivity results.
 
-**Competing interests.** The author declares no competing interests.
+**Competing interests.** The author declares no financial or non-financial competing interests.
 
 **Funding.** The author funded the study with personal resources.
 
@@ -193,45 +193,47 @@ BH, Benjamini–Hochberg. GEO, Gene Expression Omnibus. GO, Gene Ontology. GSEA,
 
 2. Marcellus KA, Bugiel S, Nunnikhoven A, Curran IH, Gill S. Polystyrene nano- and microplastic particles induce an inflammatory gene expression profile in neural stem cell-derived astrocytes. Gene Expression Omnibus. 2024. GSE256038. https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE256038
 
-3. Lévi-Strauss M, Mallat M. Primary cultures of murine astrocytes produce C3 and factor B, two components of the alternative pathway of complement activation. Journal of Immunology. 1987;139:2361–2366. https://doi.org/10.4049/jimmunol.139.7.2361
+3. Lévi-Strauss M, Mallat M. Primary cultures of murine astrocytes produce C3 and factor B, two components of the alternative pathway of complement activation. J Immunol. 1987;139:2361–2366. https://doi.org/10.4049/jimmunol.139.7.2361
 
-4. Kiran S, Thilanka U, Xue Y, Sang QXA. Polystyrene Micro- and Nanoplastic Exposure Triggers an Activation and Stress Response in Human Astrocytes. International Journal of Molecular Sciences. 2025;26:11273. https://doi.org/10.3390/ijms262311273
+4. Kiran S, Thilanka U, Xue Y, Sang QXA. Polystyrene Micro- and Nanoplastic Exposure Triggers an Activation and Stress Response in Human Astrocytes. Int J Mol Sci. 2025;26:11273. https://doi.org/10.3390/ijms262311273
 
 5. Jacquet BV, Salinas-Mondragon R, Liang H, Therit B, Buie JD, Dykstra M, et al. FoxJ1-dependent gene expression is required for differentiation of radial glia into ependymal cells and a subset of astrocytes in the postnatal brain. Development. 2009;136:4021-4031. https://doi.org/10.1242/dev.041129
 
-6. Chen S, Zhou Y, Chen Y, Gu J. fastp: an ultra-fast all-in-one FASTQ preprocessor. Bioinformatics. 2018;34:i884-i890. https://doi.org/10.1093/bioinformatics/bty560
+6. Andrews S. FastQC: a quality control tool for high throughput sequence data. Babraham Bioinformatics. https://www.bioinformatics.babraham.ac.uk/projects/fastqc/. Accessed 20 Nov 2026.
 
-7. Ewels P, Magnusson M, Lundin S, Käller M. MultiQC: summarize analysis results for multiple tools and samples in a single report. Bioinformatics. 2016;32:3047-3048. https://doi.org/10.1093/bioinformatics/btw354
+7. Chen S, Zhou Y, Chen Y, Gu J. fastp: an ultra-fast all-in-one FASTQ preprocessor. Bioinformatics. 2018;34:i884-i890. https://doi.org/10.1093/bioinformatics/bty560
 
-8. Patro R, Duggal G, Love MI, Irizarry RA, Kingsford C. Salmon provides fast and bias-aware quantification of transcript expression. Nature Methods. 2017;14:417-419. https://doi.org/10.1038/nmeth.4197
+8. Ewels P, Magnusson M, Lundin S, Käller M. MultiQC: summarize analysis results for multiple tools and samples in a single report. Bioinformatics. 2016;32:3047-3048. https://doi.org/10.1093/bioinformatics/btw354
 
-9. Soneson C, Love MI, Robinson MD. Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research. 2016;4:1521. https://doi.org/10.12688/f1000research.7563.2
+9. Patro R, Duggal G, Love MI, Irizarry RA, Kingsford C. Salmon provides fast and bias-aware quantification of transcript expression. Nat Methods. 2017;14:417-419. https://doi.org/10.1038/nmeth.4197
 
-10. Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biology. 2014;15:550. https://doi.org/10.1186/s13059-014-0550-8
+10. Soneson C, Love MI, Robinson MD. Differential analyses for RNA-seq: transcript-level estimates improve gene-level inferences. F1000Research. 2016;4:1521. https://doi.org/10.12688/f1000research.7563.2
 
-11. Benjamini Y, Hochberg Y. Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing. Journal of the Royal Statistical Society Series B: Statistical Methodology. 1995;57:289-300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x
+11. Love MI, Huber W, Anders S. Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. Genome Biol. 2014;15:550. https://doi.org/10.1186/s13059-014-0550-8
 
-12. Zhu A, Ibrahim JG, Love MI. Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences. Bioinformatics. 2019;35:2084-2092. https://doi.org/10.1093/bioinformatics/bty895
+12. Benjamini Y, Hochberg Y. Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing. J R Stat Soc Series B Stat Methodol. 1995;57:289-300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x
 
-13. Liddelow SA, Guttenplan KA, Clarke LE, Bennett FC, Bohlen CJ, Schirmer L, et al. Neurotoxic reactive astrocytes are induced by activated microglia. Nature. 2017;541:481-487. https://doi.org/10.1038/nature21029
+13. Zhu A, Ibrahim JG, Love MI. Heavy-tailed prior distributions for sequence count data: removing the noise and preserving large differences. Bioinformatics. 2019;35:2084-2092. https://doi.org/10.1093/bioinformatics/bty895
 
-14. Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, et al. Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles. Proceedings of the National Academy of Sciences. 2005;102:15545-15550. https://doi.org/10.1073/pnas.0506580102
+14. Liddelow SA, Guttenplan KA, Clarke LE, Bennett FC, Bohlen CJ, Schirmer L, et al. Neurotoxic reactive astrocytes are induced by activated microglia. Nature. 2017;541:481-487. https://doi.org/10.1038/nature21029
 
-15. Wu T, Hu E, Xu S, Chen M, Guo P, Dai Z, et al. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. The Innovation. 2021;2:100141. https://doi.org/10.1016/j.xinn.2021.100141
+15. Subramanian A, Tamayo P, Mootha VK, Mukherjee S, Ebert BL, Gillette MA, et al. Gene set enrichment analysis: A knowledge-based approach for interpreting genome-wide expression profiles. Proc Natl Acad Sci U S A. 2005;102:15545-15550. https://doi.org/10.1073/pnas.0506580102
 
-16. Franzén O, Gan LM, Björkegren JLM. PanglaoDB: a web server for exploration of mouse and human single-cell RNA sequencing data. Database. 2019;2019:baz046. https://doi.org/10.1093/database/baz046
+16. Wu T, Hu E, Xu S, Chen M, Guo P, Dai Z, et al. clusterProfiler 4.0: A universal enrichment tool for interpreting omics data. Innovation (Camb). 2021;2:100141. https://doi.org/10.1016/j.xinn.2021.100141
 
-17. Escartin C, Galea E, Lakatos A, O'Callaghan JP, Petzold GC, Serrano-Pozo A, et al. Reactive astrocyte nomenclature, definitions, and future directions. Nature Neuroscience. 2021;24:312-325. https://doi.org/10.1038/s41593-020-00783-4
+17. Franzén O, Gan LM, Björkegren JLM. PanglaoDB: a web server for exploration of mouse and human single-cell RNA sequencing data. Database (Oxford). 2019;2019:baz046. https://doi.org/10.1093/database/baz046
 
-18. Wu D, Smyth GK. Camera: a competitive gene set test accounting for inter-gene correlation. Nucleic Acids Research. 2012;40:e133. https://doi.org/10.1093/nar/gks461
+18. Escartin C, Galea E, Lakatos A, O'Callaghan JP, Petzold GC, Serrano-Pozo A, et al. Reactive astrocyte nomenclature, definitions, and future directions. Nat Neurosci. 2021;24:312-325. https://doi.org/10.1038/s41593-020-00783-4
 
-19. Hinderliter PM, Minard KR, Orr G, Chrisler WB, Thrall BD, Pounds JG, et al. ISDD: A computational model of particle sedimentation, diffusion and target cell dosimetry for in vitro toxicity studies. Particle and Fibre Toxicology. 2010;7:36. https://doi.org/10.1186/1743-8977-7-36
+19. Wu D, Smyth GK. Camera: a competitive gene set test accounting for inter-gene correlation. Nucleic Acids Res. 2012;40:e133. https://doi.org/10.1093/nar/gks461
 
-20. Eslami MJ. RNA-seq reanalysis of ciliary and complement responses to polystyrene exposure in rat astrocyte cultures. Version 1.2.0. Zenodo. 2026. https://doi.org/10.5281/zenodo.24197910
+20. Hinderliter PM, Minard KR, Orr G, Chrisler WB, Thrall BD, Pounds JG, et al. ISDD: A computational model of particle sedimentation, diffusion and target cell dosimetry for in vitro toxicity studies. Part Fibre Toxicol. 2010;7:36. https://doi.org/10.1186/1743-8977-7-36
 
-21. Eslami MJ. Complement transcript responses to two polystyrene particle sizes in rat astrocyte cultures after accounting for response amplitude. Zenodo. 2026. https://doi.org/10.5281/zenodo.24361377
+21. Eslami MJ. RNA-seq reanalysis of ciliary and complement responses to polystyrene exposure in rat astrocyte cultures. Version 1.2.0. Zenodo. 2026. https://doi.org/10.5281/zenodo.24197910
 
-22. Eslami MJ. Complement gene expression in rat astrocyte cultures exposed to 50 or 500 nm polystyrene particles at equal nominal mass concentrations. Version 1.3.1. Zenodo. 2026. https://doi.org/10.5281/zenodo.24390580
+22. Eslami MJ. Complement transcript responses to two polystyrene particle sizes in rat astrocyte cultures after accounting for response amplitude. Zenodo. 2026. https://doi.org/10.5281/zenodo.24361377
+
+23. Eslami MJ. Complement gene expression in rat astrocyte cultures exposed to 50 or 500 nm polystyrene particles at equal nominal mass concentrations. Version 1.3.1. Zenodo. 2026. https://doi.org/10.5281/zenodo.24390580
 
 ## Figure legends
 
@@ -239,7 +241,7 @@ BH, Benjamini–Hochberg. GEO, Gene Expression Omnibus. GO, Gene Ontology. GSEA,
 
 ![](../results/figures/fig3_volcano.png){width=6.1in}
 
-**Figure 2. Exploratory enrichment of eight marker sets at 100 µg/mL.** The first two columns show each response relative to its own control. The third compares those responses directly (50 nm minus 500 nm). Colour indicates NES, point size reflects −log₁₀ adjusted P, and a black outline marks adjusted P < 0.05. The figure uses the original, post hoc marker lists. The pan-reactive, A1 and A2 lists were reconstructed from Liddelow et al. [13]. The other five lists were hand-selected. Results for the separately source-checked lists are in Additional file 2.
+**Figure 2. Exploratory enrichment of eight marker sets at 100 µg/mL.** The first two columns show each response relative to its own control. The third compares those responses directly (50 nm minus 500 nm). Colour indicates NES, point size reflects −log₁₀ adjusted P, and a black outline marks adjusted P < 0.05. The figure uses the original, post hoc marker lists. The pan-reactive, A1 and A2 lists were reconstructed from Liddelow et al. [14]. The other five lists were hand-selected. Results for the separately source-checked lists are in Additional file 2.
 
 ![](../results/figures/fig5_signatures.png){width=5.7in}
 

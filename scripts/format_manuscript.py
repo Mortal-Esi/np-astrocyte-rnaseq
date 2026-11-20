@@ -46,8 +46,6 @@ def format_table(table, widths):
         for cell, width in zip(row.cells, widths):
             cell.width = Inches(width)
             cell.vertical_alignment = WD_CELL_VERTICAL_ALIGNMENT.CENTER
-            if index == 0:
-                set_element(cell._tc.get_or_add_tcPr(), "shd", fill="E9E9E9")
             for p in cell.paragraphs:
                 fmt = p.paragraph_format
                 fmt.keep_with_next = index < len(table.rows) - 1

@@ -10,7 +10,7 @@ I compared the change from each preparation’s own control across 32 libraries.
 
 The code, processed inputs and gene-level results are available for readers to examine and reuse. The analysis and a manuscript version are publicly archived in Zenodo (v1.3.1, https://doi.org/10.5281/zenodo.24390580). The v1.3.0 archive (https://doi.org/10.5281/zenodo.24361377) and its predecessor (https://doi.org/10.5281/zenodo.24197910) include earlier manuscript versions. The current text is available on GitHub (https://github.com/Mortal-Esi/np-astrocyte-rnaseq).
 
-I am the sole author, funded the work personally and declare no competing interests. The manuscript has not appeared in a journal and is not under consideration elsewhere. The Methods describe the computational assistance used in the analysis and writing.
+As the sole author, I approve this manuscript for submission to BMC Genomic Data. I funded the work personally and declare no financial or non-financial competing interests. The manuscript has not appeared in a journal and is not under consideration elsewhere. The Methods describe the computational assistance used in the analysis and writing.
 
 Sincerely,
 Mohammad Javad Eslami

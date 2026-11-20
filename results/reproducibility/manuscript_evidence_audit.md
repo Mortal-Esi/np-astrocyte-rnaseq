@@ -1,6 +1,6 @@
 # Manuscript evidence audit, 20 November 2026
 
-The 21 references in the audited manuscript were checked by identifier and title. Reference 22 was added after publication of the v1.3.1 archive. The checks below distinguish the existence of a work from its relevance to the claim. Software publications describe the methods; the versions actually run are documented in the project environment and session logs.
+The 21 references in the audited manuscript were checked by identifier and title. Reference 22 was added after publication of the v1.3.1 archive. The table retains the numbering of that audit. In the submission manuscript, FastQC is reference 6 and the subsequent numbers increase by one. The checks below distinguish the existence of a work from its relevance to the claim. Software publications describe the methods; the versions actually run are documented in the project environment and session logs.
 
 | Reference | Record checked | Use in the manuscript |
 |---|---|---|

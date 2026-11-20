@@ -7,10 +7,15 @@ soffice --headless --convert-to pdf --outdir manuscript manuscript/Manuscript.do
 python3 - <<'PY'
 from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
+from tempfile import TemporaryDirectory
+from subprocess import run
 sources = ["fig3_volcano", "fig5_signatures", "fig7_dose_response"]
-with ZipFile("manuscript/Figures.zip", "w") as archive:
+with TemporaryDirectory() as tmp, ZipFile("manuscript/Figures.zip", "w") as archive:
     for i, name in enumerate(sources, 1):
-        archive.write(Path("results/figures") / (name + ".pdf"), f"Figure{i}.pdf")
+        source = Path("results/figures") / (name + ".pdf")
+        output = Path(tmp) / f"Figure{i}.pdf"
+        run(["pdftocairo", "-pdf", "-origpagesizes", str(source), str(output)], check=True)
+        archive.write(output, output.name)
 
 supplement = [
     "data/marker_sources/SOURCES.md",
