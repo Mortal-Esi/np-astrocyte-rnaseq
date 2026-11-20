@@ -4,13 +4,13 @@ Dear Editors,
 
 I submit “Complement gene expression in rat astrocyte cultures exposed to 50 or 500 nm polystyrene particles at equal nominal mass concentrations” for consideration as a Research Article in BMC Genomic Data.
 
-The public rat astrocyte dataset GSE256038 showed inflammatory transcriptional responses to two polystyrene preparations. The original study compared each exposure with its own control. I reanalysed the 32 bulk RNA sequencing libraries to ask which responses differed between preparations at the same nominal mass concentration.
+Marcellus and colleagues found that polystyrene exposure altered inflammatory gene expression in rat astrocyte cultures. Their public dataset, GSE256038, also permits a comparison that the original exposure-versus-control lists could not answer: at the same mass concentration, which genes respond differently to the two preparations?
 
-At 100 µg/mL, the mean change from control across 18 complement genes was positive for 50 nm particles and negative for 500 nm particles. The direct difference exceeded the mean for genes matched on their 500 nm response by 0.457 log₂ units (adjusted empirical P = 0.00015). This set-level result arose from heterogeneous gene responses. In contrast, the difference for the original ciliary marker list was typical of its matched background. The gene sets were selected after the high-dose data had been inspected. The manuscript reports the sensitivity to inferred sample blocks and discusses what can be inferred from these bulk cultures.
+I compared the change from each preparation’s own control across 32 libraries. At 100 µg/mL, the mean response of 18 complement genes was positive for 50 nm particles and negative for 500 nm particles. The difference exceeded that of genes matched on their 500 nm response by 0.457 log₂ units. Ciliary genes showed a larger raw difference, yet their matched genes changed by almost exactly as much. This distinction is the paper’s main contribution. The three follow-up sets were selected after inspection of the data, and the manuscript reports how the results depend on the inferred sample blocks.
 
-The public archive includes the code, processed inputs, gene-level results and a reproducibility audit. A restart from the tximport object on the original machine recovered the main gene counts. Both the earlier archive (https://doi.org/10.5281/zenodo.24197910) and the v1.3.0 archive used for this manuscript (https://doi.org/10.5281/zenodo.24361377) include earlier manuscript versions. The project is also available on GitHub (https://github.com/Mortal-Esi/np-astrocyte-rnaseq). The work has not been published in a journal and is not under consideration by another journal.
+The code, processed inputs and gene-level results are available for readers to examine and reuse. The v1.3.0 archive (https://doi.org/10.5281/zenodo.24361377) and its predecessor (https://doi.org/10.5281/zenodo.24197910) include earlier manuscript versions. The current text is available on GitHub (https://github.com/Mortal-Esi/np-astrocyte-rnaseq).
 
-I am the sole author. I funded the study personally and declare no competing interests. The Methods describe the computational assistance used in the analysis and writing. I take responsibility for the work.
+I am the sole author, funded the work personally and declare no competing interests. The manuscript has not appeared in a journal and is not under consideration elsewhere. The Methods describe the computational assistance used in the analysis and writing.
 
 Sincerely,
 Mohammad Javad Eslami
