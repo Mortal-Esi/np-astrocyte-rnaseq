@@ -46,7 +46,7 @@ To assess the observed arrangement of suffixes, I shuffled the four labels indep
 
 For each nonzero concentration, the direct contrast on the log₂ scale was (50 nm exposure − 50 nm control) − (500 nm exposure − 500 nm control). A positive difference can arise when a gene increases more in the 50 nm series or decreases more in the 500 nm series. Direct tests used unshrunken coefficients, DESeq2 independent filtering and BH adjustment within each contrast. Gene-specific intervals are pointwise 95% Wald intervals. A three-degree-of-freedom likelihood-ratio test compared a model with a series-by-categorical-dose interaction against one with only series and dose main effects. Both included block.
 
-Each leave-one-block-out fit retained 24 libraries and the original gene universe. Normalization and dispersions were re-estimated. For each block I also calculated a descriptive response difference from log₂(normalized count + 0.5). I recorded agreement in sign across the four block estimates, agreement in sign and significance across the four omission fits, and significance in the group-only model. For within-series comparisons the same sign and omission checks were applied to each high-dose change relative to its control (Fig. 1). For sample 500C-03, an auxiliary regression compared the within-block change from control with the two high-dose expression profiles estimated from the other three blocks. The relative coefficients reflect resemblance to the particle series. As an abundance check, I restricted the reported direct contrasts using three abundance cutoffs (mean normalized count of at least 10, 20 or 50), keeping the original genome-wide adjustment.
+Each leave-one-block-out fit retained 24 libraries and the original gene universe. Normalization and dispersions were re-estimated. For each block I also calculated a descriptive response difference from log₂(normalized count + 0.5). I recorded agreement in sign across the four block estimates, agreement in sign and significance across the four omission fits, and significance in the group-only model. For within-series comparisons the same sign and omission checks were applied to each high-dose change relative to its control. For sample 500C-03, an auxiliary regression compared the within-block change from control with the two high-dose expression profiles estimated from the other three blocks. The relative coefficients reflect resemblance to the particle series. As an abundance check, I restricted the reported direct contrasts using three abundance cutoffs (mean normalized count of at least 10, 20 or 50), keeping the original genome-wide adjustment.
 
 ### Gene sets and their provenance
 
@@ -66,13 +66,17 @@ Before repeating the analyses with external lists, I recorded the selection rule
 
 ### Computational assistance and reproducibility
 
-OpenAI Codex assisted with code execution, checks against the result tables, and manuscript drafting and revision. A review using Claude examined the archived tables and suggested sensitivity analyses. A separate restart on the original machine from the tximport object reproduced the six principal gene counts reported for the direct comparisons. The author takes responsibility for the analyses and their interpretation.
+OpenAI Codex assisted with code development and execution, checks against the result tables, and manuscript drafting and revision. A review using Claude examined the archived tables and suggested sensitivity analyses. A separate restart on the original machine from the tximport object reproduced the six principal gene counts reported for the direct comparisons. The author takes responsibility for the analyses and their interpretation.
 
 ## Results
 
 ### Reprocessing recovered the published high-dose responses
 
 Salmon inferred the same inward-facing, reverse-stranded library orientation for all 32 samples. Mapping rates ranged from 83.9% to 88.1%. Of 42,687 quantified genes, 16,726 passed the count filter. At 100 µg/mL, 1,028 genes in the 50 nm series and 2,215 in the 500 nm series met both the adjusted P value and 1.5-fold criteria (Fig. 1). Of these, 610 and 1,741, respectively, also met the within-series stability criteria.
+
+**Figure 1. High-dose responses relative to the control for each particle series.** Each point is a gene with an evaluable adjusted P value. The axes show the apeglm-shrunken log₂ fold change and −log₁₀ adjusted P (capped at 40). Dashed lines mark a 1.5-fold change. Orange and red points meet both the fold-change threshold and adjusted P < 0.05 in the full blocked model. Red points also meet the adjusted P threshold in all four block-omission fits and agree in direction with the full model in every omission fit and every individual block. Grey points fail one or both full-model criteria.
+
+![](../results/figures/fig3_volcano.png){width=6.1in}
 
 Of the 531 discoveries originally reported for 50 nm particles, 497 could be matched to the filtered data, and 474 of these (95.4%) were recovered. For 500 nm particles the corresponding figures were 1,156 of 1,274 matched and 1,122 of 1,156 (97.1%) recovered. Every recovered gene agreed in direction with the published result. Across all matched genes within each series, Spearman correlations with the published high-dose log₂ fold changes were 0.93 and 0.94.
 
@@ -106,6 +110,10 @@ Individual complement genes contributed in different ways (gene-level estimates 
 
 Pan-reactive and A2 markers were enriched among genes that increased in each particle series. The homeostatic and ciliary lists were enriched among genes that decreased in the 500 nm series and had positive enrichment scores in the direct contrast (Fig. 2). In the exploratory GO screen, the term *complement activation* also had a positive score on the direct contrast (NES 1.88, adjusted P = 0.0084).
 
+**Figure 2. Exploratory enrichment of eight marker sets at 100 µg/mL.** The first two columns show each response relative to its own control. The third compares those responses directly (50 nm minus 500 nm). Colour indicates NES, point size reflects −log₁₀ adjusted P, and a black outline marks adjusted P < 0.05. The figure uses the original, post hoc marker lists. The pan-reactive, A1 and A2 lists were reconstructed from Liddelow et al. [14]. The other five lists were hand-selected. Results for the separately source-checked lists are in Additional file 2.
+
+![](../results/figures/fig5_signatures.png){width=5.7in}
+
 In the targeted high-dose GSEA, complement and ciliary genes remained enriched in all six fits (Table 2). The homeostatic list met the threshold in five, with adjusted P = 0.063 when block 2 was omitted. Removing any one member from the complement or ciliary list preserved enrichment at high dose (largest adjusted P across 25 omissions, 0.0027).
 
 **Table 2. Enrichment of the three selected gene sets in the high-dose contrast.**
@@ -129,6 +137,10 @@ Group means for individual markers are reported in Additional file 1. In the 500
 ### The intermediate-dose ciliary signal was sensitive to one block
 
 At 100 µg/mL the mean complement contrast was positive in each individual block (+0.40 to +0.79 log₂ units). Ciliary scores ranged from −0.03 to +1.61, with the largest difference in block 3 (Fig. 3A). At 10 µg/mL ciliary enrichment was positive in all six fits. Omitting block 3 lowered the NES from 1.82 to 1.46 and raised the adjusted P value from 0.0056 to 0.161. The full-model leading edge comprised *Rsph4a*, *Dynlrb2*, *Dnah5*, *Foxj1* and *Dnah9*. No fit found significant complement enrichment at 10 µg/mL or significant enrichment for either set at 1 µg/mL (Table 3).
+
+**Figure 3. Ciliary and complement responses across doses and model fits.** In panel A each point is the mean between-series response difference for genes in one set, calculated within one inferred block. Lines link doses with the same suffix. In panel B colour indicates NES, and dots mark BH-adjusted P < 0.05 across six tests per fit. Positive values indicate a more positive response in the 50 nm series. The full and group-only models use 32 libraries. Each omission model uses 24.
+
+![](../results/figures/fig7_dose_response.png){width=5.6in}
 
 **Table 3. Enrichment of ciliary and complement genes across exposure concentrations.**
 
@@ -234,17 +246,3 @@ BH, Benjamini–Hochberg. GEO, Gene Expression Omnibus. GO, Gene Ontology. GSEA,
 22. Eslami MJ. Complement transcript responses to two polystyrene particle sizes in rat astrocyte cultures after accounting for response amplitude. Zenodo. 2026. https://doi.org/10.5281/zenodo.24361377
 
 23. Eslami MJ. Complement gene expression in rat astrocyte cultures exposed to 50 or 500 nm polystyrene particles at equal nominal mass concentrations. Version 1.3.1. Zenodo. 2026. https://doi.org/10.5281/zenodo.24390580
-
-## Figure legends
-
-**Figure 1. High-dose responses relative to the control for each particle series.** Each point is a gene with an evaluable adjusted P value. The axes show the apeglm-shrunken log₂ fold change and −log₁₀ adjusted P (capped at 40). Dashed lines mark a 1.5-fold change. Orange and red points meet both the fold-change threshold and adjusted P < 0.05 in the full blocked model. Red points also meet the adjusted P threshold in all four block-omission fits and agree in direction with the full model in every omission fit and every individual block. Grey points fail one or both full-model criteria.
-
-![](../results/figures/fig3_volcano.png){width=6.1in}
-
-**Figure 2. Exploratory enrichment of eight marker sets at 100 µg/mL.** The first two columns show each response relative to its own control. The third compares those responses directly (50 nm minus 500 nm). Colour indicates NES, point size reflects −log₁₀ adjusted P, and a black outline marks adjusted P < 0.05. The figure uses the original, post hoc marker lists. The pan-reactive, A1 and A2 lists were reconstructed from Liddelow et al. [14]. The other five lists were hand-selected. Results for the separately source-checked lists are in Additional file 2.
-
-![](../results/figures/fig5_signatures.png){width=5.7in}
-
-**Figure 3. Ciliary and complement responses across doses and model fits.** In panel A each point is the mean between-series response difference for genes in one set, calculated within one inferred block. Lines link doses with the same suffix. In panel B colour indicates NES, and dots mark BH-adjusted P < 0.05 across six tests per fit. Positive values indicate a more positive response in the 50 nm series. The full and group-only models use 32 libraries. Each omission model uses 24.
-
-![](../results/figures/fig7_dose_response.png){width=5.6in}
