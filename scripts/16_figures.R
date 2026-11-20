@@ -110,7 +110,7 @@ p5 <- ggplot(long, aes(contrast, set, fill = NES, size = -log10(padj))) + geom_p
   geom_point(data = long[long$padj < 0.05, ], shape = 21, colour = "black", stroke = 1.1) +
   scale_fill_gradient2(low = "#2166ac", mid = "white", high = "#b2182b", midpoint = 0) + scale_size_continuous(range = c(2, 9)) +
   labs(x = NULL, y = NULL, title = "Reactive-astrocyte and cell-type gene sets (GSEA)",
-       subtitle = "black outline = padj < 0.05; signatures: Liddelow et al. 2017")
+       subtitle = "PAN, A1 and A2 were adapted from Liddelow et al. (2017).\nOther sets were hand-selected. Black outlines mark adjusted P < 0.05.")
 save_fig(p5, "fig5_signatures", 6.5, 4.5)
 
 # ---------------------------------------------------------------- fig6: replicate check for key genes

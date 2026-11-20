@@ -54,6 +54,20 @@ write.table(global, file.path(out, "global_amplitude.tsv"),
 members <- read.delim("results/interaction/set_members.tsv", stringsAsFactors = FALSE)
 sets <- split(as.character(members$values), members$ind)
 
+# Per-gene estimates underlying the high-dose complement means. Adjusted P values
+# retain their original genome-wide test family in each contrast.
+comp <- which(ok & sym %in% sets[["complement_activation"]])
+stopifnot(length(comp) > 0L, !anyDuplicated(sym[comp]))
+comp <- comp[order(sym[comp])]
+complement_genes <- data.frame(
+  gene_id = rownames(inter)[comp], gene_symbol = sym[comp],
+  log2FC_50nm = res50$log2FoldChange[comp], padj_50nm = res50$padj[comp],
+  log2FC_500nm = res500$log2FoldChange[comp], padj_500nm = res500$padj[comp],
+  log2FC_difference = inter$log2FoldChange[comp], padj_difference = inter$padj[comp]
+)
+write.table(complement_genes, file.path(out, "complement_genes.tsv"),
+            sep = "\t", quote = FALSE, row.names = FALSE)
+
 # ---- matched-background permutation ---------------------------------------------
 # Null: sets of the same size whose members are drawn from genes with a similar
 # 500 nm log2 fold change. This holds amplitude fixed and asks whether the set
